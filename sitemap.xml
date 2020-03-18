@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://0.0.0.0:1313/api/air-quality/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/about/</loc>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/api/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/support/</loc>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/terms-information-models/</loc>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/api/trails-devices-outdoor/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/categories/API/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/categories/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/categories/Geodata/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/tags/Geodata/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/tags/National-parks/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/tags/Outdoor/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/tags/</loc>
+    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/categories/Air/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/tags/Air-quality/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://0.0.0.0:1313/tags/Pollution/</loc>
+    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+  </url>
+  
+</urlset>

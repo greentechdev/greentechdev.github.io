@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>API on GreenTechDev</title>
+    <link>http://0.0.0.0:1313/categories/API/</link>
+    <description>Recent content in API on GreenTechDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 06 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://0.0.0.0:1313/categories/API/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Air quality</title>
+      <link>http://0.0.0.0:1313/api/air-quality/</link>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://0.0.0.0:1313/api/air-quality/</guid>
+      <description>Air quality The air quality data provides information on levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is provided in cooperation with SMHI.
+See Luftkvaliteten i realtid och preliminär statistik for more information (Swedish).
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
+Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar.</description>
+    </item>
+    
+    <item>
+      <title>Trails &amp; devices in outdoor life</title>
+      <link>http://0.0.0.0:1313/api/trails-devices-outdoor/</link>
+      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://0.0.0.0:1313/api/trails-devices-outdoor/</guid>
+      <description>Trails &amp;amp; devices in outdoor life Description here
+//Använd denna modell för beskrivning (EIF)?:
+Legal Organisational Semantic Technical //
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
+Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
+    </item>
+    
+  </channel>
+</rss>
