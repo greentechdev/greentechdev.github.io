@@ -1,35 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GreenTechDev</title>
-    <link>/</link>
-    <description>Recent content on GreenTechDev</description>
+    <title>Data on GreenTechDev</title>
+    <link>/data/</link>
+    <description>Recent content in Data on GreenTechDev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/data/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>About GreenTechDev is an initiative by the Swedish EPA (Naturvårdsverket) to provide information and generate interest around the environmental data we have. In this mission one main source of inspiration is JobTechDev by the Swedish Public Emplyment Service (Arbetsförmedlingen).
-Please note this website is currently just a proof of concept</description>
-    </item>
-    
-    <item>
-      <title>Support</title>
-      <link>/support/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/support/</guid>
-      <description>Support Contact us at xxx and we’ll try our best to help you with questions relating to the data and the APIs.
-Please note that we can only provide help around the data and APIs in general, not specific issues with your code using the data and APIs.</description>
-    </item>
     
     <item>
       <title>Trails and devices in outdoor life</title>

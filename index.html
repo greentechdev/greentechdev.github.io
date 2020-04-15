@@ -1,324 +1,195 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!doctype html>
+<html lang="en" class="h-100"><head>
 	<meta name="generator" content="Hugo 0.64.1" />
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Introduction"><meta property="og:title" content="Introduction" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://0.0.0.0:1313/" />
-<meta property="og:updated_time" content="2019-03-06T00:00:00+00:00" />
-<title>Introduction | GreenTechDev</title>
-<link rel="icon" href="/favicon.png" type="image/x-icon">
 
-
-<link rel="stylesheet" href="/book.min.b3f5b054faae0af636f22f80669f7a1259c9251d9997f454678e199d76b72362.css" integrity="sha256-s/WwVPquCvY28i&#43;AZp96ElnJJR2Zl/RUZ44ZnXa3I2I=">
-
-
-<script defer src="/en.search.min.30b0794c2a6836e8a79ad7280822f80180e830fae2dc10600bb244b4c3da6286.js" integrity="sha256-MLB5TCpoNuinmtcoCCL4AYDoMPri3BBgC7JEtMPaYoY="></script>
-
-<link rel="alternate" type="application/rss+xml" href="http://0.0.0.0:1313/index.xml" title="GreenTechDev" />
-<!--
-Made with Book Theme
-https://github.com/alex-shpak/hugo-book
--->
-
-  
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>GreenTechDev</title>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="/css/theme.css">
+	
+	<script>
+		function filterCards() {
+			
+			var input, filter, ul, li, a, i, txtValue;
+			input = document.getElementById('search');
+			filter = input.value.toUpperCase();
+			cardsList = document.getElementById("cardsList");
+			cards = cardsList.getElementsByClassName('card');
+			
+			
+			for (i = 0; i < cards.length; i++) {
+				p = cards[i].getElementsByTagName("p")[0]
+				h = cards[i].getElementsByTagName("h5")[0]
+				a = cards[i].getElementsByTagName("a")[0];
+				txtValue = (a.textContent || a.innerText) + (p.textContent || p.innerText) + (h.textContent || h.innerText);
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					cards[i].parentElement.style.display = "";
+				} else {
+					cards[i].parentElement.style.display = "none";
+				}
+			}
+		}
+	</script>
+	
 </head>
-
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
-  <main class="container flex">
-    <aside class="book-menu">
+<body class="d-flex flex-column h-100"><header>
+  <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="/gtd_logo_sm.png" style="width: 261px; height: 39px;" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       
-  <nav>
-<h2 class="book-brand">
-  <a href="/"><span>GreenTechDev</span>
-  </a>
-</h2>
-
-
-<div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner spinner hidden"></div>
-  <ul id="book-search-results"></ul>
-</div>
-
-
-
-
-
-  
-
-  
-
-
-
-
-
-
-  <ul>
-  
-    
-
-  <li >
-    
-      
-
-  <a href="/about/" >
-      About us
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-  
-    
-
-  <li >
-    
-      
-
-  <a href="/api/" >
-      APIs
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-
-  <a href="/api/air-quality/" >
-      Air quality
-  </a>
-
-</li>
-      
-    
-      
-        <li>
-
-  <a href="/api/trails-devices-outdoor/" >
-      Trails &amp; devices in outdoor life
-  </a>
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-  
-    
-
-  <li >
-    
-      
-
-  <a href="/support/" >
-      Support
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-  
-    
-
-  <li >
-    
-      
-
-  <a href="/terms-information-models/" >
-      Terms &amp; information models
-  </a>
-
-
-    
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-  
-  </ul>
-
-
-
-
-
-
-
-
-
-
-
-</nav>
-
-
-
-
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
-
-
- 
-    </aside>
-
-    <div class="book-page">
-      <header class="book-header">
+      <div class="collapse navbar-collapse" id="navbarCollapse">
         
-  <div class="flex align-center justify-between">
-  <label for="menu-control">
-    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
-  </label>
-
-  <strong>Introduction</strong>
-
-  <label for="toc-control">
-    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
-  </label>
-</div>
-
-
-  
- 
-      </header>
-
-      
-<article class="markdown"><div style="text-align: center;"><pre style="background-color: white;color: green">
-  ________                          ___________           .__    ________               
- /  _____/______   ____   ____   ___\__    ___/___   ____ |  |__ \______ \   _______  __
-/   \  __\_  __ \_/ __ \_/ __ \ /    \|    |_/ __ \_/ ___\|  |  \ |    |  \_/ __ \  \/ /
-\    \_\  \  | \/\  ___/\  ___/|   |  \    |\  ___/\  \___|   Y  \|    `   \  ___/\   /
- \______  /__|    \___   \___   ___|  /____| \___   \___   ___|  /_______  /\___   \_/</pre>
- <span style="font-style:italic; color: gray; font-size: 1.3rem;">Generating traction around environmental data</span>
- <div style="clear:both"></div>
-</div>
-<h1 id="latest-apis">Latest APIs</h1>
-<div class="book-columns flex flex-wrap">
-  
-  <div class="flex-even markdown-inner">
-    <h2 id="air-quality">Air quality</h2>
-<p>Near real-time sensor data from national monitoring stations.</p>
-<p><a href="/api/air-quality">Find out more</a></p>
-
-  </div>
-  
-  <div class="flex-even markdown-inner">
-    <h2 id="trails-in-national-parks">Trails in national parks</h2>
-<p>Find information about trails and other facilities in the Swedish national parks.</p>
-<p><a href="/api/trails-in-national-parks">Find out more</a></p>
-
-  </div>
-  
-</div>
-
-<h1 id="showcase-of-the-month">Showcase of the month</h1>
-<p>&hellip;</p>
-</article>
- 
-
-      <footer class="book-footer">
-        
-  <div class="flex justify-between">
-
-
-
-
-
-  <div>
-    <a class="flex align-center" href="https://github.com/alex-shpak/hugo-book/edit/master/exampleSite/content/_index.md" target="_blank" rel="noopener">
-      <img src="/svg/edit.svg" class="book-icon" alt="Edit" />
-      <span>Edit this page</span>
-    </a>
-  </div>
-
-</div>
-
- 
-        
-  
- 
-      </footer>
-      
+          <form class="form-inline mt-1 mt-md-0 flex-grow-1">
+            <input class="form-control mx-4 w-100" type="text" id="search" onkeyup="filterCards()" placeholder="Type to filter list..." aria-label="Search">
+          </form>
+         
+        <div class="d-flex justify-content-center">
+          <ul class="navbar-nav">
+            
+              
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+              
+                <li class="nav-item ">
+                  <a class="nav-link" href="/about/">About</a>
+                </li>
+              
+                <li class="nav-item ">
+                  <a class="nav-link" href="/support/">Support</a>
+                </li>
+              
+          </ul>
+        </div>
+      </div>
     </div>
+  </nav>
+</header><main role="main" class="flex-shrink-0">
+		
+		<div class="container mb-5">
 
-    
-  </main>
+  <p class="lead">An initiative by the Swedish EPA to provide a piece of the puzzle of solving our common challenges, 
+    by providing a one-stop shop for all our data.
+  </p>
+  <div id="cardsList" class="row">
 
   
+    
+  
+    
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card card-list">
+            <div class="card-body">
+              <p class="text-muted pb-3">#
+                
+                  API
+                
+              </p>
+              <h5 class="card-title">Air quality measurements</h5>
+              <a href="/data/air-quality-measurements/" class="stretched-link card-text">Near real-time national air quality data from measuring stations</a>
+            </div>
+          </div>
+        </div>
+
+    
+  
+    
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card card-list">
+            <div class="card-body">
+              <p class="text-muted pb-3">#
+                
+                  API
+                
+              </p>
+              <h5 class="card-title">Environmental indicators</h5>
+              <a href="/data/environmental-indicators/" class="stretched-link card-text">Indicators and data related to the national environmental objectives (e.g. fresh air)</a>
+            </div>
+          </div>
+        </div>
+
+    
+  
+    
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card card-list">
+            <div class="card-body">
+              <p class="text-muted pb-3">#
+                
+                  API
+                
+                  GEO
+                
+              </p>
+              <h5 class="card-title">Environmental monitoring stations</h5>
+              <a href="/data/environmental-monitoring-stations/" class="stretched-link card-text">Data about the national environmental monitoring stations</a>
+            </div>
+          </div>
+        </div>
+
+    
+  
+    
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card card-list">
+            <div class="card-body">
+              <p class="text-muted pb-3">#
+                
+                  API
+                
+              </p>
+              <h5 class="card-title">Industrial facilities</h5>
+              <a href="/data/industrial-facilities/" class="stretched-link card-text">Data related to the environment from industrial facilities in Sweden</a>
+            </div>
+          </div>
+        </div>
+
+    
+  
+    
+  
+    
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card card-list">
+            <div class="card-body">
+              <p class="text-muted pb-3">#
+                
+                  API
+                
+                  GEO
+                
+              </p>
+              <h5 class="card-title">Trails and devices in outdoor life</h5>
+              <a href="/data/trails-and-devices-in-outdoor-life/" class="stretched-link card-text">Trails and devices (e.g. toilets, parking lots) in national parks or other nature areas</a>
+            </div>
+          </div>
+        </div>
+
+    
+  
+
+  </div>
+
+			
+		</div>
+		
+	</main>
+<footer class="mt-auto py-3">
+  <div class="container">
+    
+    <p>&copy; GreenTechDev 2020<br />
+      Website/documentation provided as <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a><br />
+      Code examples provided as <a href="https://github.com/greentechdev/docs/blob/master/LICENSE" target="_blank">MIT</a><br />
+    </p>
+  </div>
+</footer>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

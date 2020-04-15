@@ -59,7 +59,7 @@
                   <a class="nav-link" href="/about/">About</a>
                 </li>
               
-                <li class="nav-item active">
+                <li class="nav-item ">
                   <a class="nav-link" href="/support/">Support</a>
                 </li>
               
@@ -72,9 +72,53 @@
 		
 		<div class="container mb-5">
 
-  <h1 id="support">Support</h1>
-<p>Contact us at xxx and we’ll try our best to help you with questions relating to the data and the APIs.</p>
-<p>Please note that we can only provide help around the data and APIs in general, not specific issues with your code using the data and APIs.</p>
+  <h1 id="air-quality-measurements">Air quality measurements</h1>
+<p>The air quality data provides information on levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is provided in cooperation with <a href="https://smhi.se">SMHI</a>.</p>
+<p>See <a href="https://www.naturvardsverket.se/Sa-mar-miljon/Klimat-och-luft/Statistik-om-luft/Luftkvaliteten-i-realtid/">Luftkvaliteten i realtid och preliminär statistik</a> for more information (Swedish).</p>
+<h2 id="license--conditions">License &amp; conditions</h2>
+<p>The data is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero, CC0</a>.</p>
+<p>Our APIs and data are provided &ldquo;as is&rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar.  We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</p>
+<h2 id="data-model">Data model</h2>
+<p>The data is based on the <a href="https://en.wikipedia.org/wiki/Observations_and_Measurements">Observations &amp; Measurements</a> model, and is made available via a <a href="https://en.wikipedia.org/wiki/Sensor_Observation_Service">Sensor Observation Service (SOS)</a>. The central terms to be aware of are therefore:</p>
+<figure>
+    <img src="/obsmea.png"
+         alt="Useful terms"/> 
+</figure>
+
+<ul>
+<li>Feature of interest (station) - the geographical location where measured</li>
+<li>Phenomenon - the thing measured, e.g. the gas NO2</li>
+<li>Procedure - metadata about the sensor or process the generates the data</li>
+<li>Offering - categories of data offered by the service, e.g. satellite or station observations</li>
+</ul>
+<h2 id="distributions">Distributions</h2>
+<p>The data is made available through a HTTP/REST API.</p>
+<h3 id="rest-api">REST API</h3>
+<div class="shortcode shortcode--swagger-ui">
+	<iframe
+		src='https://petstore.swagger.io/?url=https://raw.githubusercontent.com/mitch99/docs/master/airquality.json'
+		frameborder="0"
+		scrolling="yes"
+		width="100%"
+		height='1000'>
+	</iframe>
+</div>
+
+<h2 id="example-usage">Example usage</h2>
+<p>As a basic illustration of using the API and data, see the following code example for displaying the last months of NOx (phenomenon) measured at Hornsgatan (feature of interest) in a basic chart.</p>
+<p>Use the link &ldquo;Edit in JSFiddle&rdquo; in the top right corner of the example to start customising the example and explore further.</p>
+<h3 id="chart-for-nox-measured-at-hornsgatan">Chart for NOx measured at Hornsgatan</h3>
+<div class="shortcode shortcode--jsfiddle shortcode--code">
+	<iframe
+		width="100%"
+		height='600'
+		src='//jsfiddle.net/rfep6gmn/4/embedded/result,js,html,css/dark'
+		allowfullscreen="allowfullscreen"
+		frameborder="0">
+	</iframe>
+</div>
+
+
 
 
 
@@ -85,7 +129,7 @@
 <footer class="mt-auto py-3">
   <div class="container">
     
-    <p class="float-right"><a href="https://github.com/greentechdev/docs/edit/master/content/support.md" target="_blank" rel="noopener">
+    <p class="float-right"><a href="https://github.com/greentechdev/docs/edit/master/content/data/air-quality-measurements.md" target="_blank" rel="noopener">
       <svg class="mr-1" id="i-compose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="15" height="15" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
         <path d="M27 15 L27 30 2 30 2 5 17 5 M30 6 L26 2 9 19 7 25 13 23 Z M22 6 L26 10 Z M9 19 L13 23 Z" />
       </svg>Edit this page</a>

@@ -1,0 +1,128 @@
+body {
+  color: #5a5a5a;
+  font-size: 1.1rem;
+}
+
+a, a:hover {
+  color: #46be2f;
+}
+
+.h1, h1 {
+  font-size: 2.1rem;
+}
+.h2, h2 {
+  font-size: 1.7rem;
+}
+.h3, h3 {
+  font-size: 1.3rem;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-weight: 400!important;
+  margin-bottom: .6rem;
+  padding-top: 1rem;
+}
+
+.navbar {
+  border-bottom: 1px solid #eee;
+}
+
+.bg-light {
+  background-color: white!important;
+}
+
+main > .container {
+  padding-top: 90px;
+}
+
+.card.card-list {
+  background-color:white;
+  border-top: 5px solid #eee;
+  margin-top: 1rem;
+}
+
+.card.card-list:hover {
+  border-color: #46be2f;
+}
+
+.card h5 {
+  color: #46be2f;
+}
+
+a.stretched-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card.accordion {
+  border: 0;
+}
+
+.accordion {
+  margin-bottom: 0.3rem;
+}
+
+.accordion > .card-header {
+  font-size: 1.5rem;
+  background-color: #ecf6ec;
+  border: 1px solid #ecf6ec;
+  border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+  cursor: hand;
+}
+.accordion > .card-header:hover {
+  border-color: white;
+  background-color: #dcefdc;
+}
+
+.accordion-inner > .card-header {
+  font-size: 1.25rem;
+} 
+
+.accordion-inner > .card-body {
+  background-color: #ecf6ec;
+}
+
+.badge-primary {
+  background-color: #46be2f;
+}
+
+.caret {
+  border: solid #555;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  margin-top: 1.5rem;
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease-out;
+}
+
+i.caret {
+  border: solid #555;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  margin-top: .5rem;
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease-out;
+}
+i.active {
+  transform: rotate(45deg);
+}
+
+footer {
+  background-color: #46be2f;
+  color: #fff;
+}
+
+footer a {
+  color: #eee;
+  text-decoration: none;
+}
+
+footer a:hover, footer a:active {
+  color: #fff;
+}
+
+footer svg {
+  vertical-align: baseline;
+}

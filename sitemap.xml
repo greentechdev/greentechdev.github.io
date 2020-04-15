@@ -3,85 +3,87 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://0.0.0.0:1313/api/air-quality/</loc>
-    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+    <loc>/tags/about/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/about/</loc>
+    <loc>/about/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/api/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/tags/api/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/support/</loc>
+    <loc>/data/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/terms-information-models/</loc>
+    <loc>/tags/geo/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/api/trails-devices-outdoor/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/categories/API/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/tags/greentechdev/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/categories/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/tags/help/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/categories/Geodata/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/tags/support/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/tags/Geodata/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/support/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/tags/National-parks/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/data/trails-and-devices-in-outdoor-life/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/tags/Outdoor/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/data/air-quality-measurements/</loc>
+    <lastmod>2020-02-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/tags/</loc>
-    <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+    <loc>/data/environmental-indicators/</loc>
+    <lastmod>2020-02-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/categories/Air/</loc>
-    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+    <loc>/data/environmental-monitoring-stations/</loc>
+    <lastmod>2020-02-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/tags/Air-quality/</loc>
-    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+    <loc>/data/industrial-facilities/</loc>
+    <lastmod>2020-02-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://0.0.0.0:1313/tags/Pollution/</loc>
-    <lastmod>2019-02-14T00:00:00+00:00</lastmod>
+    <loc>/categories/</loc>
   </url>
   
 </urlset>
