@@ -39,6 +39,10 @@ a, a:hover {
  display: none;
 }
 
+.navbar-toggler {
+  padding: .1rem .5rem .25rem .5rem;
+}
+
 main > .container {
   padding-top: 90px;
 }
