@@ -31,6 +31,14 @@ a, a:hover {
   background-color: white!important;
 }
 
+#navbarToggleCbox:checked ~ .collapse {
+  display:block;
+}
+
+#navbarToggleCbox {
+ display: none;
+}
+
 main > .container {
   padding-top: 90px;
 }
@@ -126,3 +134,4 @@ footer a:hover, footer a:active {
 footer svg {
   vertical-align: baseline;
 }
+
