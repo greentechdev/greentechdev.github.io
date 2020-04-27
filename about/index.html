@@ -14,8 +14,8 @@
     <div class="container">
       <input type="checkbox" id="navbarToggleCbox">
       <a class="navbar-brand" href="/">
-        <img class="d-md-none" src="/gtd_logo_sm.png" width="190" height="30" alt="logo">
-        <img class="d-none d-md-block" src="/gtd_logo_md.png" width="261" height="39" alt="logo">
+        <img id="gtdlogo" class="img-fluid" src="/gtd_logo_md.png" width="261" height="39" alt="logo">
+
       </a>
       
       <label for="navbarToggleCbox" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-label="Toggle navigation">
@@ -60,6 +60,10 @@
 		</div>
 		
 	</main>
+<script src="/js/cookie-consent.js"></script>
+
+
+
 <footer class="mt-auto py-3">
   <div class="container">
     
@@ -76,9 +80,6 @@
     </p>
   </div>
 </footer>
-<script src="/js/cookie-consent.js"></script>
-
-
 <div id="cookie-consent" class="fixed-bottom">
   <p class="float-right">
     <button onclick="CookieConsent.reject();" class="btn btn-secondary">Reject</button>

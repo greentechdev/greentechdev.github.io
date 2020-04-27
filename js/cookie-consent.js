@@ -4,23 +4,33 @@ var CookieConsent = (function() {
     'cookieName': "cookieConsent",
     'cookieDurationInDays': 365,
     'cookieBannerDiv': "cookie-consent",
+    '_presentBanner': true,
 
     'checkConsent': function() {
       // If DoNotTrack enabled don't track
       if (window.doNotTrack || navigator.doNotTrack || navigator.msDoNotTrack || 'msTrackingProtectionEnabled' in window.external) {
         if (window.doNotTrack == "1" || navigator.doNotTrack == "yes" || navigator.doNotTrack == "1" || navigator.msDoNotTrack == "1" || window.external.msTrackingProtectionEnabled()) {
-          CookieConsent._closeBanner();
+          CookieConsent._showBanner = false;
         }
       }
       // Previous consent
       else if (document.cookie.indexOf(CookieConsent.cookieName + '=1') > -1) {
-        CookieConsent._closeBanner();
+        CookieConsent._presentBanner = false;
         CookieConsent._addAnalytics();
       } 
       // Previous reject
       else if (document.cookie.indexOf(CookieConsent.cookieName + '=0') > -1) {
-        CookieConsent._closeBanner();
+        CookieConsent._presentBanner = false;
       }
+
+      if (CookieConsent._presentBanner) {
+        CookieConsent._showBanner()  
+      }
+    },
+
+    '_showBanner': function() {
+      var element = document.getElementById(CookieConsent.cookieBannerDiv);
+      element.style.display = "initial";
     },
     
     '_closeBanner': function() {

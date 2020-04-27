@@ -151,6 +151,7 @@ footer svg {
   background-color: #333;
   padding: .9rem;
   color: #e5e5e5;
+  display: none;
 }
 
 a.btn {
