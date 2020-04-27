@@ -18,7 +18,22 @@
   </url>
   
   <url>
+    <loc>/cookie-policy/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cookies/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/data/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/gdpr/</loc>
     <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -28,12 +43,12 @@
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>/tags/greentechdev/</loc>
     <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/greentechdev/</loc>
+    <loc>/</loc>
     <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   

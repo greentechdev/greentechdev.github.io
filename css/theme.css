@@ -61,6 +61,10 @@ main > .container {
   color: #46be2f;
 }
 
+.btn-success {
+  background-color: #46be2f;
+}
+
 a.stretched-link {
   text-decoration: none;
   color: inherit;
@@ -126,12 +130,12 @@ footer {
   color: #fff;
 }
 
-footer a {
+footer a, #cookie-consent a {
   color: #eee;
   text-decoration: none;
 }
 
-footer a:hover, footer a:active {
+footer a:hover, footer a:active, #cookie-consent a:hover, #cookie-consent a:active {
   color: #fff;
 }
 
@@ -139,3 +143,20 @@ footer svg {
   vertical-align: baseline;
 }
 
+#cookie-consent a {
+  text-decoration: underline;
+}
+
+#cookie-consent {
+  background-color: #333;
+  padding: .9rem;
+  color: #e5e5e5;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+td, th {
+  padding: 0.5rem;
+}

@@ -3,37 +3,11 @@
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>GreenTechDev</title>
-	
+	<meta name="description" content="Data about the national environmental monitoring stations">
+	<meta name="author" content="Naturvårdsverket - Swedish EPA">
+	<title>Environmental monitoring stations - GreenTechDev</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="/css/theme.css">
-	
-	<script>
-		function filterCards() {
-			
-			var input, filter, ul, li, a, i, txtValue;
-			input = document.getElementById('search');
-			filter = input.value.toUpperCase();
-			cardsList = document.getElementById("cardsList");
-			cards = cardsList.getElementsByClassName('card');
-			
-			
-			for (i = 0; i < cards.length; i++) {
-				p = cards[i].getElementsByTagName("p")[0]
-				h = cards[i].getElementsByTagName("h5")[0]
-				a = cards[i].getElementsByTagName("a")[0];
-				txtValue = (a.textContent || a.innerText) + (p.textContent || p.innerText) + (h.textContent || h.innerText);
-				if (txtValue.toUpperCase().indexOf(filter) > -1) {
-					cards[i].parentElement.style.display = "";
-				} else {
-					cards[i].parentElement.style.display = "none";
-				}
-			}
-		}
-	</script>
-	
 </head>
 <body class="d-flex flex-column h-100"><header>
   <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
@@ -102,15 +76,27 @@
     <p class="float-right"><a href="https://github.com/greentechdev/docs/edit/master/content/data/environmental-monitoring-stations.md" target="_blank" rel="noopener">
       <svg class="mr-1" id="i-compose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="15" height="15" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
         <path d="M27 15 L27 30 2 30 2 5 17 5 M30 6 L26 2 9 19 7 25 13 23 Z M22 6 L26 10 Z M9 19 L13 23 Z" />
-      </svg>Edit this page</a>
+      </svg>Edit this page</a> 
     </p>
     
+    /data/environmental-monitoring-stations/
     <p>&copy; GreenTechDev 2020<br />
       Website/documentation provided as <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a><br />
       Code examples provided as <a href="https://github.com/greentechdev/docs/blob/master/LICENSE" target="_blank">MIT</a><br />
+      Our <a href="/cookie-policy/">Cookie policy</a><br />
     </p>
   </div>
 </footer>
-</body>
+<script src="/js/cookie-consent.js"></script>
 
+
+<div id="cookie-consent" class="fixed-bottom">
+  <p class="float-right">
+    <button onclick="CookieConsent.reject();" class="btn btn-secondary">Reject</button>
+    <button onclick="CookieConsent.accept();" class="btn btn-success">Accept</button>
+  </p>
+  We use cookies to understand how visitors use our web site in order to improve our services. 
+  They do not contain any personal information about you.
+  <a href="/cookie-policy/">Learn more</a>.
+</div></body>	
 </html>
