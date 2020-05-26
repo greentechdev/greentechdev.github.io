@@ -1,0 +1,622 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Air quality API",
+    "version": "1.0.0",
+    "description": "Near real-time national sensor data",
+    "contact": {
+      "email": "data@nv.se",
+      "name": "Support"
+    },
+    "license": {
+      "name": "Creative Commons Zero, CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://shair.smhi.se/52North/api/v1"
+    }
+  ],
+  "paths": {
+    "/stations": {
+      "get": {
+        "summary": "All features of interest (i.e. monitoring stations)",
+        "parameters": [
+          {
+            "name": "phenomenon",
+            "in": "query",
+            "description": "Filter by phenomenon ID.",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "Int32"
+            }
+          },
+          {
+            "name": "crs",
+            "in": "query",
+            "description": "The client indicates that input geometries shall be interpreted as being referenced by the given CRS (in this case to 'EPSG:25832' (ETRS89, UTM zone 32N)). Per default geometries are referenced by the WGS84 CRS (precisely: CRS84, lon/lat order). If crs value differs from default, all output geometries are transformed to match the asked CRS.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bbox",
+            "in": "query",
+            "description": "Stations within a given bounding box (in WGS84 by default). Refer to the crs parameter if a non-default CRS shall be used.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ll": {
+                      "$ref": "#/components/schemas/Point"
+                    },
+                    "ur": {
+                      "$ref": "#/components/schemas/Point"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "name": "near",
+            "in": "query",
+            "description": "Stations around a given point (in WGS84 by default). The radius unit is in kilometers (km). Refer to the crs parameter if a non-default CRS shall be used. Generally x=lon, y=lat, but dependent on the CRS chosen.",
+            "required": false,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "center": {
+                      "$ref": "#/components/schemas/Point"
+                    },
+                    "radius": {
+                      "type": "number",
+                      "format": "int",
+                      "example": 10
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "$ref": "#/components/parameters/offsetParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          }
+        ],
+        "tags": [
+          "Supporting data"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Station"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      }
+    },
+    "/stations/{id}": {
+      "get": {
+        "summary": "Single feature of interest (i.e. monitoring station) by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Filter by station ID.",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "Int32"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/offsetParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          }
+        ],
+        "tags": [
+          "Supporting data"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StationExtended"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      }
+    },
+    "/phenomena": {
+      "get": {
+        "summary": "All phenomena monitored (e.g. NO2)",
+        "tags": [
+          "Supporting data"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/offsetParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Phenomena"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      }
+    },
+    "/phenomena/{id}": {
+      "get": {
+        "summary": "Single phenomenon monitored (e.g. NO2) by ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Filter by phenomenon ID.",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "Int32"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/offsetParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          }
+        ],
+        "tags": [
+          "Supporting data"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Phenomena"
+                  }
+                },
+                "example": {
+                  "id": 316,
+                  "domainId": "http://dd.eionet.europa.eu/vocabulary/aq/pollutant/316",
+                  "label": "(CH3)2-CH-CH2-CH2-CH3"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      }
+    },
+    "/timeseries": {
+      "get": {
+        "summary": "All observations (i.e. the results of the measurements)",
+        "operationId": "timeseries",
+        "parameters": [
+          {
+            "name": "phenomenon",
+            "in": "query",
+            "description": "Filter by phenomenon ID.",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "station",
+            "in": "query",
+            "description": "Filter by station ID.",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "timespan",
+            "in": "query",
+            "description": "Filter by timespan. UTC/GMT time zone, separate start and end with forward slash.",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "2017-12-31T23:00:00.000Z/2018-01-21T22:00:00.000Z"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/offsetParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Timeseries"
+                },
+                "example": {
+                  "id": 5075,
+                  "label": "(CH3)2-CH-CH2-CH2-CH3 SPP-SE0004A_00316_100_100, Göteborg Femman - 4642, SPP-SE0004A_00316_100_100",
+                  "uom": "µg/m3",
+                  "station": {
+                    "type": "Feature",
+                    "id": "4642",
+                    "properties": {
+                      "id": "4642",
+                      "label": "Göteborg Femman - 4642"
+                    },
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": "11.9702405180056, 57.7090200428988"
+                    },
+                    "parameters": {}
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        },
+        "tags": [
+          "Observations"
+        ]
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Search across all resources",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "description": "Search expression.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "NOx"
+          }
+        ],
+        "tags": [
+          "Search"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Searchresult"
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/GeneralError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Timeseries": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "label": {
+            "format": "string",
+            "description": "Concatenated string of phenomena, procedure, station, and offering"
+          },
+          "uom": {
+            "format": "string",
+            "description": "Unit of measurement"
+          },
+          "station": {
+            "$ref": "#/components/schemas/Station"
+          }
+        }
+      },
+      "Station": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Always \"Feature\""
+          },
+          "id": {
+            "type": "number",
+            "format": "int32",
+            "description": "Station ID."
+          },
+          "Properties": {
+            "$ref": "#/components/schemas/Property"
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Geometry"
+          }
+        }
+      },
+      "StationExtended": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Always \"Feature\""
+          },
+          "id": {
+            "type": "number",
+            "format": "int32",
+            "description": "Station ID."
+          },
+          "Properties": {
+            "$ref": "#/components/schemas/PropertyExtended"
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Geometry"
+          }
+        }
+      },
+      "Phenomena": {
+        "properties": {
+          "id": {
+            "type": "number",
+            "format": "int32",
+            "description": "Phenomena identifier"
+          },
+          "domainId": {
+            "type": "string",
+            "description": "Code list entry and definition"
+          },
+          "label": {
+            "type": "string",
+            "description": "Phenomena label"
+          }
+        }
+      },
+      "Geometry": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Coordinate type"
+          },
+          "coordinates": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "format": "double",
+              "description": "Lat, Lon."
+            }
+          }
+        }
+      },
+      "Property": {
+        "properties": {
+          "id": {
+            "type": "number",
+            "format": "int32",
+            "description": "Property identifier"
+          },
+          "Label": {
+            "type": "string",
+            "description": "Property label"
+          }
+        }
+      },
+      "PropertyExtended": {
+        "properties": {
+          "id": {
+            "type": "number",
+            "format": "int32",
+            "description": "Property identifier"
+          },
+          "Label": {
+            "type": "string",
+            "description": "Property label"
+          },
+          "timeseries": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "description": "An object with the Timeseries ID as key",
+              "properties": {
+                "phenomenon": {
+                  "$ref": "#/components/schemas/IDAndLabel"
+                },
+                "procedure": {
+                  "$ref": "#/components/schemas/IDAndLabel"
+                },
+                "category": {
+                  "$ref": "#/components/schemas/IDAndLabel"
+                },
+                "offering": {
+                  "$ref": "#/components/schemas/IDAndLabel"
+                },
+                "feature": {
+                  "$ref": "#/components/schemas/IDAndLabel"
+                },
+                "service": {
+                  "$ref": "#/components/schemas/IDAndLabel"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Point": {
+        "properties": {
+          "type": {
+            "format": "string",
+            "example": "Point"
+          },
+          "coordinates": {
+            "type": "array",
+            "description": "X and Y",
+            "items": {
+              "type": "integer"
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "example": [
+              "<x>",
+              "<y>"
+            ]
+          }
+        }
+      },
+      "IDAndLabel": {
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int323"
+          },
+          "label": {
+            "type": "string"
+          }
+        }
+      },
+      "Searchresult": {
+        "description": "To find the result - use the resource /timeseries for type=\"dataset\", and /stations for type=\"feature\". Apply the \"id\"-property as the path parameter.  E.g. for the result \"{ 'id': '909', ... 'type': 'feature' }\" make a request to [API URL]/stations/909.",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "label": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        }
+      },
+      "Error": {
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "fields": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "responses": {
+      "GeneralError": {
+        "description": "Unexpected error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "offsetParam": {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "description": "The number of items to skip before starting to collect the result set."
+      },
+      "limitParam": {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "default": 10
+        },
+        "description": "The numbers of items to return."
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Observations"
+    },
+    {
+      "name": "Supporting data"
+    },
+    {
+      "name": "Search"
+    }
+  ]
+}
