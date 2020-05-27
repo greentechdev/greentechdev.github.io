@@ -7,7 +7,9 @@
 	<meta name="author" content="Naturvårdsverket - Swedish EPA">
 	<title>Air quality measurements - GreenTechDev</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/theme.css">
+	
+	
+	<link rel="stylesheet" href="/css/theme.min.0d59b065ef75b37f29b226f38627a397f98907b85bcd6aaecd262e5bd35c0ad6.css">
 </head>
 <body class="d-flex flex-column h-100"><header>
   <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
@@ -48,19 +50,26 @@
   </nav>
 </header><main role="main" class="flex-shrink-0">
 		
-		<div class="container mb-5">
+		<div class="container mb-5"><div id="browserwarning" class="d-none alert alert-warning alert-dismissible fade show" role="alert">
+  Your're using an old browser (IE) and some features of this website will not work (e.g. interactive specifications/demos). 
+  <button type="button" onclick="dismissBrowserWarning()" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
   <h1 id="air-quality-measurements">Air quality measurements</h1>
 <p>The air quality data provides information on levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is provided in cooperation with <a href="https://smhi.se">SMHI</a>.</p>
 <p>See <a href="https://www.naturvardsverket.se/Sa-mar-miljon/Klimat-och-luft/Statistik-om-luft/Luftkvaliteten-i-realtid/">Luftkvaliteten i realtid och preliminär statistik</a> for more information (Swedish).</p>
+<h2 id="data-quality">Data quality</h2>
+<p>No information.</p>
 <h2 id="license--conditions">License &amp; conditions</h2>
 <p>The data is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero, CC0</a>.</p>
 <p>Our APIs and data are provided &ldquo;as is&rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar.  We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</p>
 <h2 id="data-model">Data model</h2>
-<p>The data is based on the <a href="https://en.wikipedia.org/wiki/Observations_and_Measurements">Observations &amp; Measurements</a> model, and is made available via a <a href="https://en.wikipedia.org/wiki/Sensor_Observation_Service">Sensor Observation Service (SOS)</a>. The central terms to be aware of are therefore:</p>
+<p>The data is based on the <a href="https://en.wikipedia.org/wiki/Observations_and_Measurements">Observations &amp; Measurements</a> model, and was originally made available via a <a href="https://en.wikipedia.org/wiki/Sensor_Observation_Service">Sensor Observation Service (SOS)</a>. The central terms to be aware of are therefore:</p>
 <figure>
-    <img src="/obsmea.png"
-         alt="Useful terms"/> 
+    <img src="/airqualitymodel.png"
+         alt="Air quality model"/> 
 </figure>
 
 <ul>
@@ -69,14 +78,16 @@
 <li>Procedure - metadata about the sensor or process the generates the data</li>
 <li>Offering - categories of data offered by the service, e.g. satellite or station observations</li>
 </ul>
-<h2 id="data-quality">Data quality</h2>
-<p>&hellip;</p>
 <h2 id="distributions">Distributions</h2>
-<p>The data is made available through a HTTP/REST API.</p>
+<p>The data is made available via a HTTP/REST API.</p>
 <h3 id="rest-api">REST API</h3>
+<ul>
+<li><a href="https://raw.githubusercontent.com/greentechdev/greentechdev.github.io/master/air_quality_api.json">Download OpenAPI specification</a></li>
+<li><a href="https://github.com/greentechdev/greentechdev.github.io/edit/master/air_quality_api.json">Improve this specification</a></li>
+</ul>
 <div class="shortcode shortcode--swagger-ui">
 	<iframe
-		src='https://petstore.swagger.io/?url=https://raw.githubusercontent.com/mitch99/docs/master/airquality.json'
+		src='https://petstore.swagger.io/?url=https://raw.githubusercontent.com/greentechdev/greentechdev.github.io/master/air_quality_api.json'
 		frameborder="0"
 		scrolling="yes"
 		width="100%"
@@ -85,14 +96,14 @@
 </div>
 
 <h2 id="example-usage">Example usage</h2>
-<p>As a basic illustration of using the API and data, see the following code example for displaying the last months of NOx (phenomenon) measured at Hornsgatan (feature of interest) in a basic chart.</p>
-<p>Use the link &ldquo;Edit in JSFiddle&rdquo; in the top right corner of the example to start customising the example and explore further.</p>
-<h3 id="chart-for-nox-measured-at-hornsgatan">Chart for NOx measured at Hornsgatan</h3>
+<p>See the following example for an illustration of how to use the API and data. It&rsquo;s written in JavaScript, so it&rsquo;s easy to try without downloading or installing anything. Click the button <em>&ldquo;Try it!&quot;</em> below each block of code, or the link <em>&ldquo;Edit in JSFiddle&rdquo;</em> in the top right corner of the live example to edit, run and play with them further.</p>
+<h3 id="chart-last-24h-of-no2-at-hornsgatan">Chart last 24h of NO2 at Hornsgatan</h3>
+<p>Say we&rsquo;re looking to chart the levels of NO2 (nitrogen dioxide) at Hornsgatan, Stockholm for the last 24 hours and compare it to the the threshold value from the <a href="https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Luft-och-klimat/Miljokvalitetsnormer-for-utomhusluft/Gransvarden-malvarden-utvarderingstrosklar/">environmental quality standards</a>. Something like</p>
 <div class="shortcode shortcode--jsfiddle shortcode--code">
 	<iframe
 		width="100%"
-		height='600'
-		src='//jsfiddle.net/rfep6gmn/4/embedded/result,js,html,css/dark'
+		height='380'
+		src='//jsfiddle.net/greentechdev/0dax5c3L/4/embedded/result/light'
 		allowfullscreen="allowfullscreen"
 		frameborder="0">
 	</iframe>
@@ -100,14 +111,348 @@
 
 
 
+<p>So in three simple steps:</p>
+<ol>
+<li>
+<p>Using the Search-resource to find the NO2 phenomenon:</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//make a search query for our term NO2
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">fetch</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;https://shair.smhi.se/52North/api/v1/search?q=NO2&#34;</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">json</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getElementById</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;results&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">innerHTML</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">JSON</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stringify</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<button class="btn btn-outline-secondary btn-sm try-button" onclick='fiddle(this, &#34;true&#34;, &#34;false&#34;
+  )'>Try it!</button>
+<p>in the resultset we have a match - the NO2 phenomenon has the ID = 8</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#4e9a06">&#34;id&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;8&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#4e9a06">&#34;label&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;NO2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#4e9a06">&#34;href&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;./phenomena/8&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#4e9a06">&#34;type&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;phenomenon&#34;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Using the Station-resource to find a station monitoring our phenomena close to Hornsgatan</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//URL to find stations filtered by our phenomenon ID 
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">url</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https://shair.smhi.se/52North/api/v1/stations/?phenomena=8&#34;</span><span style="color:#000;font-weight:bold">;</span>
+   
+<span style="color:#8f5902;font-style:italic">//Using the &#34;near&#34;-parameter in the API to filter the list of stations by closeness to a point on a map we pick 
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">nearFilter</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;center&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#4e9a06">&#34;type&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Point&#34;</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#4e9a06">&#34;coordinates&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">18.0486603472042</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">59.3172224331124</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#8f5902;font-style:italic">//Lon-Lat for a point close to Hornsgatan (easy to get from Google maps or similar)
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#4e9a06">&#34;radius&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#8f5902;font-style:italic">//search radius in kilometers
+</span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#000;font-weight:bold">}</span>
+
+<span style="color:#8f5902;font-style:italic">//Prepare the parameter for use in the URL
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">nearFilter</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">encodeURIComponent</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">JSON</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stringify</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">nearFilter</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+
+<span style="color:#8f5902;font-style:italic">//Append our near filter to the URL   
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">url</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#4e9a06">&#34;&amp;near=&#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">nearFilter</span><span style="color:#000;font-weight:bold">;</span>
+   
+<span style="color:#8f5902;font-style:italic">//Fetch the filtered list of stations
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">fetch</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">url</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">json</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getElementById</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;results&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">innerHTML</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">JSON</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stringify</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<button class="btn btn-outline-secondary btn-sm try-button" onclick='fiddle(this, &#34;true&#34;, &#34;false&#34;
+  )'>Try it!</button>
+<p>in the resultset we pick this station:</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#000;font-weight:bold">{</span>
+  <span style="color:#4e9a06">&#34;type&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Feature&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#4e9a06">&#34;id&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;115&#34;</span><span style="color:#000;font-weight:bold">,</span>
+  <span style="color:#4e9a06">&#34;properties&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#4e9a06">&#34;id&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;115&#34;</span><span style="color:#000;font-weight:bold">,</span>
+    <span style="color:#4e9a06">&#34;label&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Stockholm Hornsgatan 108 Gata - 115&#34;</span>
+  <span style="color:#000;font-weight:bold">}</span>
+  <span style="color:#000;font-weight:bold">...</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Using the Timeseries-resource to get our measurment data</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//With our phenomenon- and station ID - see what timeseries there are  
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">fetch</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;https://shair.smhi.se/52North/api/v1/timeseries/?phenomena=8&amp;station=115&#34;</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">json</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getElementById</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;results&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">innerHTML</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">JSON</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">stringify</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#204a87;font-weight:bold">null</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<button class="btn btn-outline-secondary btn-sm try-button" onclick='fiddle(this, &#34;true&#34;, &#34;false&#34;
+  )'>Try it!</button>
+<p>There is one such item - with ID = 59:</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#000;font-weight:bold">{</span>
+<span style="color:#4e9a06">&#34;id&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;59&#34;</span><span style="color:#000;font-weight:bold">,</span>
+<span style="color:#4e9a06">&#34;label&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;NO2 SPP-SE0003A_00008_100_100, Stockholm Hornsgatan 108 Gata - 115, SPP-SE0003A_00008_100_100&#34;</span><span style="color:#000;font-weight:bold">,</span>
+<span style="color:#4e9a06">&#34;uom&#34;</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;µg/m3&#34;</span><span style="color:#000;font-weight:bold">,</span>
+<span style="color:#000;font-weight:bold">...</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now let&rsquo;s get the data for this timeseries (ID = 59) and plot it on a chart. We&rsquo;ll use the &ldquo;timespan&rdquo;-parameter to limit the results to a day back from now. This example uses the ChartJS-library.</p>
+<div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//Create from and to-dates for the &#34;timespan&#34; API-parameter
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">toDate</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87">Date</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">fromDate</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87">Date</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">fromDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">setDate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">toDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getDate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+
+<span style="color:#8f5902;font-style:italic">//Create URL for our timeseries and with the create timespan dates
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">url</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https://shair.smhi.se/52North/api/v1/timeseries/59/getData?timespan=&#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">fromDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">toISOString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#34;/&#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">toDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">toISOString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+
+<span style="color:#8f5902;font-style:italic">//Get the data
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">fetch</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">url</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">json</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span>
+  <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
+
+    <span style="color:#8f5902;font-style:italic">//Split timestamp and values into separate arrays to match the chart input
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">labels</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">values</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">data</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">values</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">forEach</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">function</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">labels</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87">Date</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">timestamp</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">toLocaleTimeString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000;font-weight:bold">]</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">timeStyle</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#39;short&#39;</span>
+      <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+      <span style="color:#000">values</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">parseFloat</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">value</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+
+    <span style="color:#8f5902;font-style:italic">//Create threshold data series for comparison, it only needs a start and end value. Source:
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">// https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Luft-och-klimat/Miljokvalitetsnormer-for-utomhusluft/Gransvarden-malvarden-utvarderingstrosklar/
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">thresholdHourValue</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">90</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">thresholdHourValues</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87">Array</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">values</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">thresholdHourValues</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">thresholdHourValue</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">thresholdHourValues</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">values</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">thresholdHourValue</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">thresholdDayValue</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">60</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">thresholdDayValues</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87">Array</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">values</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">thresholdDayValues</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">thresholdDayValue</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">thresholdDayValues</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">values</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">length</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">thresholdDayValue</span><span style="color:#000;font-weight:bold">;</span>
+
+    <span style="color:#8f5902;font-style:italic">// Create the chart.js data structure using the labels, values and thresholdValues just created
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">chartData</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">labels</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">labels</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000">datasets</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#000">label</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;NO2&#34;</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">values</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">borderColor</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;#61affe&#34;</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">backgroundColor</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;rgba(97,175,254,.2)&#34;</span>            <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#000">label</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Hourly threshold value (90 µg/m3)&#34;</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">thresholdHourValues</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">fill</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#39;+1&#39;</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">spanGaps</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">borderColor</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;#E8A482&#34;</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">backgroundColor</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;rgba(232, 164, 130, 0.2)&#34;</span>
+        <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#000">label</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#34;Daily threshold value (60 µg/m3)&#34;</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">thresholdDayValues</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">fill</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">false</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">spanGaps</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span>
+        <span style="color:#000;font-weight:bold">}</span>
+      <span style="color:#000;font-weight:bold">]</span>
+    <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">;</span>
+
+    <span style="color:#8f5902;font-style:italic">//Get the context of the canvas element we want to draw the chart on
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">ctx</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">document</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getElementById</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;myChart&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getContext</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;2d&#34;</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+
+    <span style="color:#8f5902;font-style:italic">// Instantiate the chart
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">mychart</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#000">Chart</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ctx</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">{</span>
+      <span style="color:#000">type</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#39;line&#39;</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000">chartData</span><span style="color:#000;font-weight:bold">,</span>
+      <span style="color:#000">options</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#000">title</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#000">display</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+          <span style="color:#000">text</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#4e9a06">&#39;Stockholm, Hornsgatan 108, &#39;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">fromDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">toLocaleString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#39; - &#39;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">toDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">toLocaleString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000">tooltips</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#000;font-weight:bold">{</span>
+          <span style="color:#000">enabled</span><span style="color:#ce5c00;font-weight:bold">:</span> <span style="color:#204a87;font-weight:bold">true</span><span style="color:#000;font-weight:bold">,</span>
+        <span style="color:#000;font-weight:bold">}</span>
+      <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+  <span style="color:#000;font-weight:bold">}</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+
+
+</code></pre></td></tr></table>
+</div>
+</div>
+<button class="btn btn-outline-secondary btn-sm try-button" onclick='fiddle(this, &#34;false&#34;, &#34;true&#34;
+  )'>Try it!</button>
+<p>Done!</p>
+</li>
+</ol>
+
 
 
 			
 		</div>
 		
 	</main>
-<script src="/js/cookie-consent.js"></script>
 
+
+
+
+
+<script type="text/javascript" src="/js/scripts.min.f19d468e7db3f7c70ea6f30d12e416dcb48417782acd7b7ff4d529b3d68542dc.js"></script>
 
 
 <footer class="mt-auto py-3">
@@ -115,7 +460,7 @@
     
     <p class="float-right"><a href="https://github.com/greentechdev/docs/edit/master/content/data/air-quality-measurements.md" target="_blank" rel="noopener">
       <svg class="mr-1" id="i-compose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="15" height="15" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-        <path d="M27 15 L27 30 2 30 2 5 17 5 M30 6 L26 2 9 19 7 25 13 23 Z M22 6 L26 10 Z M9 19 L13 23 Z" />
+        <path d="M27 15 L27 30 2 30 2 5 17 5 M30 6 L26 2 9 19 7 25 13 23 Z M22 6 L26 10 Z M9 19 L13 23 Z"></path>
       </svg>Edit this page</a> 
     </p>
     

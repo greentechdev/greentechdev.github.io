@@ -6,10 +6,22 @@
     <description>Recent content in API on GreenTechDev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 23 May 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/api/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Environmental indicators</title>
+      <link>/data/environmental-indicators/</link>
+      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/data/environmental-indicators/</guid>
+      <description>Environmental indicators Indicators and data related to the national environmental objectives (e.g. fresh air), for more informartion see The environmental objectives system.
+The production of the indicators is a joint effort by eight government agencies and the counties.
+Data quality No information.
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0&#34;.  Our APIs and data are provided &#34;as is&#34; without guarantees concerning potential errors in the data, availability and performance of the API and similar.</description>
+    </item>
     
     <item>
       <title>Trails and devices in outdoor life</title>
@@ -30,19 +42,9 @@ Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees co
       <guid>/data/air-quality-measurements/</guid>
       <description>Air quality measurements The air quality data provides information on levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is provided in cooperation with SMHI.
 See Luftkvaliteten i realtid och preliminär statistik for more information (Swedish).
+Data quality No information.
 License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
 Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar.</description>
-    </item>
-    
-    <item>
-      <title>Environmental indicators</title>
-      <link>/data/environmental-indicators/</link>
-      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/data/environmental-indicators/</guid>
-      <description>Environmental indicators Indicators and data related to the national environmental objectives (e.g. fresh air)&amp;hellip;
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
     </item>
     
     <item>
@@ -51,10 +53,9 @@ Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees co
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>/data/environmental-monitoring-stations/</guid>
-      <description>Environmental monitoring stations Data about the national environmental monitoring stations&amp;hellip;
+      <description>1 2 3 4  var body = document.body;var textContent = body.textContent || body.innerText;console.log(textContent); // a bc   Try it! Environmental monitoring stations Data about the national environmental monitoring stations&amp;hellip;
 License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.
-Data model &amp;hellip;</description>
+Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
     </item>
     
     <item>

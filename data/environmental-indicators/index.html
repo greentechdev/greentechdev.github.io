@@ -7,7 +7,9 @@
 	<meta name="author" content="Naturvårdsverket - Swedish EPA">
 	<title>Environmental indicators - GreenTechDev</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" href="/css/theme.css">
+	
+	
+	<link rel="stylesheet" href="/css/theme.min.0d59b065ef75b37f29b226f38627a397f98907b85bcd6aaecd262e5bd35c0ad6.css">
 </head>
 <body class="d-flex flex-column h-100"><header>
   <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
@@ -48,21 +50,57 @@
   </nav>
 </header><main role="main" class="flex-shrink-0">
 		
-		<div class="container mb-5">
+		<div class="container mb-5"><div id="browserwarning" class="d-none alert alert-warning alert-dismissible fade show" role="alert">
+  Your're using an old browser (IE) and some features of this website will not work (e.g. interactive specifications/demos). 
+  <button type="button" onclick="dismissBrowserWarning()" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
   <h1 id="environmental-indicators">Environmental indicators</h1>
-<p>Indicators and data related to the national environmental objectives (e.g. fresh air)&hellip;</p>
+<p>Indicators and data related to the national environmental objectives (e.g. fresh air), for more informartion see <a href="http://www.sverigesmiljomal.se/environmental-objectives/">The environmental objectives system</a>.</p>
+<p>The production of the indicators is a joint effort by eight government agencies and the counties.</p>
+<h2 id="data-quality">Data quality</h2>
+<p>No information.</p>
 <h2 id="license--conditions">License &amp; conditions</h2>
-<p>The data is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero, CC0</a>.</p>
-<p>Our APIs and data are provided &ldquo;as is&rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar.  We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</p>
+The data is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons Zero, CC0</a>".
+<p>
+Our APIs and data are provided "as is" without guarantees concerning potential errors in the data, availability and performance of the API and similar.  We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.
+</p>
 <h2 id="data-model">Data model</h2>
-<p>&hellip;</p>
+<p>To better understand this data, the following model covers the basic parts</p>
+<figure>
+    <img src="/indicatormodel.png"
+         alt="Indicator model"/> 
+</figure>
+
+<ul>
+<li>Indicator - the main information item describing a particular indicator</li>
+<li>Objective - environmental objective the indicator is used to track the state of</li>
+<li>Dataset - grouping of data used for tracking the state of the different phenomena monitored</li>
+<li>Presentationvariable - the dataset&rsquo;s data is split into these</li>
+<li>Presentation - A selection of data combined with textual descriptions to present the state of a phenomena monitored</li>
+<li>Location - geographical coverage of the data and textual descriptions</li>
+</ul>
 <h2 id="distributions">Distributions</h2>
-<p>The data is made available through a HTTP/REST API.</p>
+<p>The data is made available via a HTTP/REST API.</p>
 <h3 id="rest-api">REST API</h3>
-<p>..</p>
+<ul>
+<li><a href="https://raw.githubusercontent.com/greentechdev/greentechdev.github.io/master/environmental_indicators_api.json">Download OpenAPI specification</a></li>
+<li><a href="https://github.com/greentechdev/greentechdev.github.io/edit/master/environmental_indicators_api.json">Improve this specification</a></li>
+</ul>
+<div class="shortcode shortcode--swagger-ui">
+	<iframe
+		src='https://petstore.swagger.io/?url=https://raw.githubusercontent.com/greentechdev/greentechdev.github.io/master/environmental_indicators_api.json'
+		frameborder="0"
+		scrolling="yes"
+		width="100%"
+		height='1000'>
+	</iframe>
+</div>
+
 <h2 id="example-usage">Example usage</h2>
-<p>&hellip;</p>
+<p>Currently the API does not support CORS (to be corrected). Meanwhile no browser demo of example usage is available.</p>
 
 
 
@@ -70,8 +108,12 @@
 		</div>
 		
 	</main>
-<script src="/js/cookie-consent.js"></script>
 
+
+
+
+
+<script type="text/javascript" src="/js/scripts.min.f19d468e7db3f7c70ea6f30d12e416dcb48417782acd7b7ff4d529b3d68542dc.js"></script>
 
 
 <footer class="mt-auto py-3">
@@ -79,7 +121,7 @@
     
     <p class="float-right"><a href="https://github.com/greentechdev/docs/edit/master/content/data/environmental-indicators.md" target="_blank" rel="noopener">
       <svg class="mr-1" id="i-compose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="15" height="15" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-        <path d="M27 15 L27 30 2 30 2 5 17 5 M30 6 L26 2 9 19 7 25 13 23 Z M22 6 L26 10 Z M9 19 L13 23 Z" />
+        <path d="M27 15 L27 30 2 30 2 5 17 5 M30 6 L26 2 9 19 7 25 13 23 Z M22 6 L26 10 Z M9 19 L13 23 Z"></path>
       </svg>Edit this page</a> 
     </p>
     
