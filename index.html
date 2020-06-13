@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	
 	
-	<link rel="stylesheet" href="/css/theme.min.78706c2073c7a2f8d1fbf184061437934bfa1ac7dfca6543154b246c502cc3bd.css">
+	<link rel="stylesheet" href="/css/theme.min.807284193eda24758849a1099037f14fb02652282d657fd685c9a18b039dee6f.css">
 </head>
 <body class="d-flex flex-column h-100"><header>
   <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
@@ -52,7 +52,7 @@
     </div>
   </nav>
 </header><main role="main" class="flex-shrink-0">
-		
+
 		<div class="container mb-5"><div id="browserwarning" class="d-none alert alert-warning alert-dismissible fade show" role="alert">
   Your're using an old browser (IE) and some features of this website will not work (e.g. interactive specifications/demos). 
   <button type="button" onclick="dismissBrowserWarning()" class="close" aria-label="Close">
@@ -72,11 +72,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card card-list">
             <div class="card-body">
-              <p class="text-muted pb-3">#
-                
-                  API
-                
-              </p>
+              <p class="text-muted pb-3">#air #geo</p>
               <h5 class="card-title">Air quality measurements</h5>
               <a href="/data/air-quality-measurements/" class="stretched-link card-text">Near real-time national air quality data from measuring stations</a>
             </div>
@@ -91,11 +87,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card card-list">
             <div class="card-body">
-              <p class="text-muted pb-3">#
-                
-                  API
-                
-              </p>
+              <p class="text-muted pb-3">#indicator</p>
               <h5 class="card-title">Environmental indicators</h5>
               <a href="/data/environmental-indicators/" class="stretched-link card-text">Indicators and data related to the national environmental objectives (e.g. fresh air)</a>
             </div>
@@ -108,13 +100,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card card-list">
             <div class="card-body">
-              <p class="text-muted pb-3">#
-                
-                  API
-                
-                  GEO
-                
-              </p>
+              <p class="text-muted pb-3">#sites #geo</p>
               <h5 class="card-title">Environmental monitoring stations</h5>
               <a href="/data/environmental-monitoring-stations/" class="stretched-link card-text">Data about the national environmental monitoring stations</a>
             </div>
@@ -127,13 +113,22 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card card-list">
             <div class="card-body">
-              <p class="text-muted pb-3">#
-                
-                  API
-                
-              </p>
+              <p class="text-muted pb-3">#sites #geo</p>
               <h5 class="card-title">Industrial facilities</h5>
               <a href="/data/industrial-facilities/" class="stretched-link card-text">Data related to the environment from industrial facilities in Sweden</a>
+            </div>
+          </div>
+        </div>
+
+    
+  
+    
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="card card-list">
+            <div class="card-body">
+              <p class="text-muted pb-3">#sites</p>
+              <h5 class="card-title">Natura 2000 sites</h5>
+              <a href="/data/natura-2000-sites/" class="stretched-link card-text">The Swedish sites as part of the Natura 2000 network of protected sites for rare species or habitat types</a>
             </div>
           </div>
         </div>
@@ -146,13 +141,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="card card-list">
             <div class="card-body">
-              <p class="text-muted pb-3">#
-                
-                  API
-                
-                  GEO
-                
-              </p>
+              <p class="text-muted pb-3">#API #GEO</p>
               <h5 class="card-title">Trails and devices in outdoor life</h5>
               <a href="/data/trails-and-devices-in-outdoor-life/" class="stretched-link card-text">Trails and devices (e.g. toilets, parking lots) in national parks or other nature areas</a>
             </div>
@@ -173,12 +162,19 @@
 
 
 
-<script type="text/javascript" src="/js/scripts.min.f19d468e7db3f7c70ea6f30d12e416dcb48417782acd7b7ff4d529b3d68542dc.js"></script>
+<script type="text/javascript" src="/js/scripts.min.6d383474e9cd03cb1d95531868bca0cfd9737780a506c3fb8bb51dea8ab35b5d.js"></script>
 
 
-<footer class="mt-auto py-3">
+<footer class="mt-auto">
+  <img id="footer-background" src="/landscape.svg" />
   <div class="container">
-    
+      <p class="float-right">
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          <a href="/index.json"> This page in JSON</a>
+        
+      </p>
     <p>&copy; GreenTechDev 2020<br />
       Website/documentation provided as <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a><br />
       Code examples provided as <a href="https://github.com/greentechdev/docs/blob/master/LICENSE" target="_blank">MIT</a><br />

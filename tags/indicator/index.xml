@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>indicator on GreenTechDev</title>
+    <link>/tags/indicator/</link>
+    <description>Recent content in indicator on GreenTechDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Sat, 23 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/indicator/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Environmental indicators</title>
+      <link>/data/environmental-indicators/</link>
+      <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/data/environmental-indicators/</guid>
+      <description>Environmental indicators Indicators and data related to the national environmental objectives (e.g. fresh air), for more informartion see The environmental objectives system.
+The production of the indicators is a joint effort by eight government agencies and the counties.
+Data quality No information.
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.  Our APIs and data are provided &#34;as is&#34; without guarantees concerning potential errors in the data, availability and performance of the API and similar.</description>
+    </item>
+    
+  </channel>
+</rss>

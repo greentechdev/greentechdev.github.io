@@ -6,17 +6,26 @@
     <description>Recent content in Tags on GreenTechDev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Sat, 23 May 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>API</title>
-      <link>/tags/api/</link>
+      <title>sites</title>
+      <link>/tags/sites/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/sites/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>indicator</title>
+      <link>/tags/indicator/</link>
       <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/tags/api/</guid>
+      <guid>/tags/indicator/</guid>
       <description></description>
     </item>
     
@@ -26,6 +35,15 @@
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>API</title>
+      <link>/tags/api/</link>
+      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/api/</guid>
       <description></description>
     </item>
     
@@ -80,6 +98,15 @@
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/support/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>air</title>
+      <link>/tags/air/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/air/</guid>
       <description></description>
     </item>
     

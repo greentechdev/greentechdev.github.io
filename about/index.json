@@ -1,0 +1,9 @@
+
+{
+  "name": "About",
+  "updated": "2020-03-30 00:00:00 +0000 UTC",
+  "description" : "About this initiative",
+  "permalink" : "/about/",
+  "tags": ["GreenTechDev","About"],
+  "content" : "\r\n# About\r\n\r\nGreenTechDev is an initiative by the Swedish EPA (Naturvårdsverket) to provide information and generate interest around the environmental data we have. In this mission a source of inspiration is JobTechDev by the Swedish Public Emplyment Service (Arbetsförmedlingen).\r\n  **_Please note this website is currently just a proof of concept_**\r\n\r\n"
+}

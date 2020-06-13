@@ -3,13 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/tags/api/</loc>
-    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+    <loc>/data/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/data/</loc>
-    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/data/natura-2000-sites/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/sites/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -18,12 +33,7 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2020-05-23T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>/tags/indicator/</loc>
     <lastmod>2020-05-23T00:00:00+00:00</lastmod>
   </url>
   
@@ -34,6 +44,11 @@
   
   <url>
     <loc>/about/</loc>
+    <lastmod>2020-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/api/</loc>
     <lastmod>2020-03-30T00:00:00+00:00</lastmod>
   </url>
   
@@ -80,6 +95,11 @@
   <url>
     <loc>/data/trails-and-devices-in-outdoor-life/</loc>
     <lastmod>2020-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/air/</loc>
+    <lastmod>2020-02-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>

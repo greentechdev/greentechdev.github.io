@@ -604,7 +604,7 @@
           "maximum": 100,
           "default": 10
         },
-        "description": "The numbers of items to return."
+        "description": "The number of items to return."
       }
     }
   },

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>air on GreenTechDev</title>
+    <link>/tags/air/</link>
+    <description>Recent content in air on GreenTechDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <lastBuildDate>Tue, 25 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/air/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Air quality measurements</title>
+      <link>/data/air-quality-measurements/</link>
+      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/data/air-quality-measurements/</guid>
+      <description>Air quality measurements The air quality data provides information on levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is provided in cooperation with SMHI.
+See Luftkvaliteten i realtid och preliminär statistik for more information (Swedish).
+Data quality No information.
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.  Our APIs and data are provided &#34;</description>
+    </item>
+    
+  </channel>
+</rss>
