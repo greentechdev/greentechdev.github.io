@@ -1,9 +1,9 @@
 
 {
-  "name": "Support",
-  "updated": "2020-03-30 00:00:00 +0000 UTC",
-  "description" : "Support information",
+  "name": "Support: questions relating to the data and services",
+  "updated": "0001-01-01 00:00:00 +0000 UTC",
+  "description" : "Information on how to contact us and what we can help with relating to the data and services provided.",
   "permalink" : "/support/",
   "tags": ["Support","Help"],
-  "content" : "\r\n# Support\r\n\r\nContact us at xxx and we’ll try our best to help you with questions relating to the data and the APIs.\r\n\r\nPlease note that we can only provide help around the data and APIs in general, not specific issues with your code using the data and APIs."
+  "content" : "\r\n# Support\r\n\r\nContact us at _data [at] naturvardsverket.se_ and we’ll try our best to help you with questions relating to the data and the APIs.\r\n\r\nPlease note that we can only provide help around the data and APIs in general, not for issues with your code when using the data and APIs."
 }

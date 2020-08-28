@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>About on GreenTechDev</title>
+    <title>About on Greentechdev</title>
     <link>/tags/about/</link>
-    <description>Recent content in About on GreenTechDev</description>
+    <description>Recent content in About on Greentechdev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Mon, 30 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/about/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>About</title>
+      <title>Learn more about this website</title>
       <link>/about/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/about/</guid>
-      <description>About GreenTechDev is an initiative by the Swedish EPA (Naturvårdsverket) to provide information and generate interest around the environmental data we have. In this mission a source of inspiration is JobTechDev by the Swedish Public Emplyment Service (Arbetsförmedlingen).
+      <description>About Greentechdev is an initiative by the Swedish EPA (Naturvårdsverket) to provide information and generate interest around the environmental data we have. In this mission a source of inspiration is the site JobTechDev by the Swedish Public Emplyment Service (Arbetsförmedlingen).
 Please note this website is currently just a proof of concept</description>
     </item>
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Data on GreenTechDev</title>
+    <title>Data on Greentechdev</title>
     <link>/data/</link>
-    <description>Recent content in Data on GreenTechDev</description>
+    <description>Recent content in Data on Greentechdev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
@@ -47,30 +47,6 @@ Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees co
     </item>
     
     <item>
-      <title>Air quality measurements</title>
-      <link>/data/air-quality-measurements/</link>
-      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/data/air-quality-measurements/</guid>
-      <description>Air quality measurements The air quality data provides information on levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is provided in cooperation with SMHI.
-See Luftkvaliteten i realtid och preliminär statistik for more information (Swedish).
-Data quality No information.
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.  Our APIs and data are provided &#34;</description>
-    </item>
-    
-    <item>
-      <title>Environmental monitoring stations</title>
-      <link>/data/environmental-monitoring-stations/</link>
-      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/data/environmental-monitoring-stations/</guid>
-      <description>Environmental monitoring stations Data about the national environmental monitoring stations&amp;hellip;
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.
-Data model &amp;hellip;</description>
-    </item>
-    
-    <item>
       <title>Industrial facilities</title>
       <link>/data/industrial-facilities/</link>
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
@@ -79,6 +55,28 @@ Data model &amp;hellip;</description>
       <description>Industrial facilities Data related to the environment from industrial facilities in Sweden&amp;hellip;
 License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
 Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
+    </item>
+    
+    <item>
+      <title>Air quality measurements</title>
+      <link>/data/air-quality-measurements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/data/air-quality-measurements/</guid>
+      <description>Air quality measurements Near real-time national air quality data from measuring stations - the air quality data provides information on the levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is made available via a HTTP/REST API with various usage examples. The data is provided in cooperation with SMHI.
+See Luftkvaliteten i realtid och preliminär statistik for more information (Swedish).</description>
+    </item>
+    
+    <item>
+      <title>Environmental monitoring stations</title>
+      <link>/data/environmental-monitoring-stations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/data/environmental-monitoring-stations/</guid>
+      <description>Environmental monitoring stations Data about the national environmental monitoring stations&amp;hellip;
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
+Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.
+Data model &amp;hellip;</description>
     </item>
     
   </channel>

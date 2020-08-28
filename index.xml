@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GreenTechDev</title>
+    <title>Greentechdev is a initiative by the Swedish EPA to provide easy to use open data in the environmental domain on Greentechdev</title>
     <link>/</link>
-    <description>Recent content on GreenTechDev</description>
+    <description>Recent content in Greentechdev is a initiative by the Swedish EPA to provide easy to use open data in the environmental domain on Greentechdev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -36,16 +35,6 @@ License &amp;amp; conditions The data is licensed under Creative Commons Zero, C
     </item>
     
     <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>About GreenTechDev is an initiative by the Swedish EPA (Naturvårdsverket) to provide information and generate interest around the environmental data we have. In this mission a source of inspiration is JobTechDev by the Swedish Public Emplyment Service (Arbetsförmedlingen).
-Please note this website is currently just a proof of concept</description>
-    </item>
-    
-    <item>
       <title>Cookie policy</title>
       <link>/cookie-policy/</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
@@ -53,16 +42,6 @@ Please note this website is currently just a proof of concept</description>
       <guid>/cookie-policy/</guid>
       <description>Cookie policy What are cookies? A cookie is a piece of data from a website stored on the visitor’s computer by the web browser. Typically to remember preferences, sessions (for example to keep track of whether a user is logged in or not), or track behavior (e.g. pages visited).
 If set by the website the user is visiting, it&amp;rsquo;s called a first-party cookie, while a cookie set by external services the website is using is called a third-party cookie.</description>
-    </item>
-    
-    <item>
-      <title>Support</title>
-      <link>/support/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/support/</guid>
-      <description>Support Contact us at xxx and we’ll try our best to help you with questions relating to the data and the APIs.
-Please note that we can only provide help around the data and APIs in general, not specific issues with your code using the data and APIs.</description>
     </item>
     
     <item>
@@ -77,21 +56,30 @@ Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees co
     </item>
     
     <item>
-      <title>Air quality measurements</title>
-      <link>/data/air-quality-measurements/</link>
+      <title>Industrial facilities</title>
+      <link>/data/industrial-facilities/</link>
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
       
+      <guid>/data/industrial-facilities/</guid>
+      <description>Industrial facilities Data related to the environment from industrial facilities in Sweden&amp;hellip;
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
+Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
+    </item>
+    
+    <item>
+      <title>Air quality measurements</title>
+      <link>/data/air-quality-measurements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
       <guid>/data/air-quality-measurements/</guid>
-      <description>Air quality measurements The air quality data provides information on levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is provided in cooperation with SMHI.
-See Luftkvaliteten i realtid och preliminär statistik for more information (Swedish).
-Data quality No information.
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.  Our APIs and data are provided &#34;</description>
+      <description>Air quality measurements Near real-time national air quality data from measuring stations - the air quality data provides information on the levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is made available via a HTTP/REST API with various usage examples. The data is provided in cooperation with SMHI.
+See Luftkvaliteten i realtid och preliminär statistik for more information (Swedish).</description>
     </item>
     
     <item>
       <title>Environmental monitoring stations</title>
       <link>/data/environmental-monitoring-stations/</link>
-      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/data/environmental-monitoring-stations/</guid>
       <description>Environmental monitoring stations Data about the national environmental monitoring stations&amp;hellip;
@@ -101,14 +89,23 @@ Data model &amp;hellip;</description>
     </item>
     
     <item>
-      <title>Industrial facilities</title>
-      <link>/data/industrial-facilities/</link>
-      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
+      <title>Learn more about this website</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/data/industrial-facilities/</guid>
-      <description>Industrial facilities Data related to the environment from industrial facilities in Sweden&amp;hellip;
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
+      <guid>/about/</guid>
+      <description>About Greentechdev is an initiative by the Swedish EPA (Naturvårdsverket) to provide information and generate interest around the environmental data we have. In this mission a source of inspiration is the site JobTechDev by the Swedish Public Emplyment Service (Arbetsförmedlingen).
+Please note this website is currently just a proof of concept</description>
+    </item>
+    
+    <item>
+      <title>Support: questions relating to the data and services</title>
+      <link>/support/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/support/</guid>
+      <description>Support Contact us at data [at] naturvardsverket.se and we’ll try our best to help you with questions relating to the data and the APIs.
+Please note that we can only provide help around the data and APIs in general, not for issues with your code when using the data and APIs.</description>
     </item>
     
   </channel>

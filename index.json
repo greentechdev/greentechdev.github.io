@@ -1,8 +1,8 @@
 [
   {
 "name": "Air quality measurements",
-"updated": "2020-02-25",
-"description" : "Near real-time national air quality data from measuring stations",
+"updated": "0001-01-01",
+"description" : "Near real-time national air quality data from measuring stations - the air quality data provides information on the levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is made available via a HTTP/REST API with various usage examples.",
 "permalink" : "/data/air-quality-measurements/",
 "tags": ["air","geo"]
 }
@@ -15,7 +15,7 @@
 }
   , {
 "name": "Environmental monitoring stations",
-"updated": "2020-02-25",
+"updated": "0001-01-01",
 "description" : "Data about the national environmental monitoring stations",
 "permalink" : "/data/environmental-monitoring-stations/",
 "tags": ["sites","geo"]

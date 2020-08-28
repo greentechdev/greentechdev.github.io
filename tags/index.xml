@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on GreenTechDev</title>
+    <title>Tags on Greentechdev</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on GreenTechDev</description>
+    <description>Recent content in Tags on Greentechdev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
@@ -26,15 +26,6 @@
       <pubDate>Sat, 23 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/indicator/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/tags/about/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/about/</guid>
       <description></description>
     </item>
     
@@ -66,7 +57,7 @@
     </item>
     
     <item>
-      <title>geo</title>
+      <title>GEO</title>
       <link>/tags/geo/</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
@@ -75,9 +66,27 @@
     </item>
     
     <item>
-      <title>GreenTechDev</title>
+      <title>About</title>
+      <link>/tags/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>air</title>
+      <link>/tags/air/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/air/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Greentechdev</title>
       <link>/tags/greentechdev/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tags/greentechdev/</guid>
       <description></description>
@@ -86,7 +95,7 @@
     <item>
       <title>Help</title>
       <link>/tags/help/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tags/help/</guid>
       <description></description>
@@ -95,18 +104,9 @@
     <item>
       <title>Support</title>
       <link>/tags/support/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tags/support/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>air</title>
-      <link>/tags/air/</link>
-      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/air/</guid>
       <description></description>
     </item>
     
