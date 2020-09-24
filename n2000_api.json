@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "Natura2000 API",
-    "description": "Information about the Swedish Natura 2000 nature protection areas.",
+    "description": "Information about the Swedish Natura 2000 nature protection sites.",
     "version": "2.0.0-4"
   },
   "servers": [
@@ -15,7 +15,7 @@
       "name": "Supporting data"
     },
     {
-      "name": "N2000 areas"
+      "name": "N2000 sites"
     }
   ],
   "paths": {
@@ -24,7 +24,7 @@
         "tags": [
           "Supporting data"
         ],
-        "summary": "All species within the N2000 areas",
+        "summary": "All species within the N2000 sites",
         "operationId": "arter",
         "responses": {
           "200": {
@@ -89,7 +89,7 @@
         "tags": [
           "Supporting data"
         ],
-        "summary": "All species groups within the N2000 areas.",
+        "summary": "All species groups within the N2000 sites.",
         "operationId": "getArtGruppList",
         "responses": {
           "200": {
@@ -116,7 +116,7 @@
         "tags": [
           "Supporting data"
         ],
-        "summary": "All nature types within the N2000 areas",
+        "summary": "All nature types within the N2000 sites",
         "operationId": "naturtyper",
         "responses": {
           "200": {
@@ -143,7 +143,7 @@
         "tags": [
           "Supporting data"
         ],
-        "summary": "A document related to a N2000 area (e.g. a maintainance plan)",
+        "summary": "A document related to a N2000 site (e.g. a maintainance plan)",
         "description": "Information about what documents there are, use _/omrade_.",
         "operationId": "document_kod_id",
         "parameters": [
@@ -159,7 +159,7 @@
           {
             "name": "kod",
             "in": "path",
-            "description": "The code (_\"kod\"_) for an N2000 area",
+            "description": "The code (_\"kod\"_) for an N2000 site",
             "required": true,
             "schema": {
               "type": "string"
@@ -189,10 +189,10 @@
     "/omrade": {
       "get": {
         "tags": [
-          "N2000 areas"
+          "N2000 sites"
         ],
-        "summary": "All Natura 2000 areas",
-        "description": "Full information for an area is available via _/omrade/{id}_",
+        "summary": "All Natura 2000 sites",
+        "description": "Full information for an site is available via _/omrade/{id}_",
         "operationId": "omrade",
         "parameters": [
           {
@@ -214,7 +214,7 @@
           {
             "name": "kod",
             "in": "query",
-            "description": "Filter by N2000 area __code__. Can be partial.",
+            "description": "Filter by N2000 site __code__. Can be partial.",
             "schema": {
               "type": "string"
             }
@@ -248,7 +248,7 @@
           {
             "name": "namn",
             "in": "query",
-            "description": "Filter by N2000 area __name__. Can be partial",
+            "description": "Filter by N2000 site __name__. Can be partial",
             "schema": {
               "type": "string"
             }
@@ -272,7 +272,7 @@
           {
             "name": "omradestypkod",
             "in": "query",
-            "description": "Filter by [area type](https://en.wikipedia.org/wiki/Natura_2000#History) (i.e. __key__ from _/omrade/omradestyper_).",
+            "description": "Filter by [site type](https://en.wikipedia.org/wiki/Natura_2000#History) (i.e. __key__ from _/omrade/omradestyper_).",
             "schema": {
               "type": "string"
             }
@@ -286,7 +286,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/N2000Area"
+                    "$ref": "#/components/schemas/N2000Site"
                   }
                 }
               }
@@ -301,10 +301,10 @@
     "/omrade/nolinks": {
       "get": {
         "tags": [
-          "N2000 areas"
+          "N2000 sites"
         ],
-        "summary": "All Natura 2000 areas, without links in the results",
-        "description": "Same as _/omrade_, but without the links data (i.e. the \"atom.link\"-property). Full information for an area is available via _/omrade/{id}_",
+        "summary": "All Natura 2000 sites, without links in the results",
+        "description": "Same as _/omrade_, but without the links data (i.e. the \"atom.link\"-property). Full information for an site is available via _/omrade/{id}_",
         "operationId": "omrade_nolinks",
         "parameters": [
           {
@@ -326,7 +326,7 @@
           {
             "name": "kod",
             "in": "query",
-            "description": "Filter by N2000 area __code__. Can be partial.",
+            "description": "Filter by N2000 site __code__. Can be partial.",
             "schema": {
               "type": "string"
             }
@@ -360,7 +360,7 @@
           {
             "name": "namn",
             "in": "query",
-            "description": "Filter by N2000 area __name__. Can be partial",
+            "description": "Filter by N2000 site __name__. Can be partial",
             "schema": {
               "type": "string"
             }
@@ -384,7 +384,7 @@
           {
             "name": "omradestypkod",
             "in": "query",
-            "description": "Filter by [area type](https://en.wikipedia.org/wiki/Natura_2000#History) (i.e. __key__ from _/omrade/omradestyper_).",
+            "description": "Filter by [site type](https://en.wikipedia.org/wiki/Natura_2000#History) (i.e. __key__ from _/omrade/omradestyper_).",
             "schema": {
               "type": "string"
             }
@@ -398,7 +398,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/N2000AreaNoLinks"
+                    "$ref": "#/components/schemas/N2000SiteNoLinks"
                   }
                 }
               }
@@ -413,16 +413,16 @@
     "/omrade/extentAsWkt": {
       "get": {
         "tags": [
-          "N2000 areas"
+          "N2000 sites"
         ],
-        "summary": "Combined geographical extent of one or more N2000 areas",
+        "summary": "Combined geographical extent of one or more N2000 sites",
         "description": "Note that the response is in [WKT](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) format, encoded as [SWEREF99 / EPSG:3006](https://epsg.io/3006).",
         "operationId": "omrade_extentAsWkt",
         "parameters": [
           {
             "name": "id",
             "in": "query",
-            "description": "Comma separated list of N2000 area codes (_\"kod\"_). E.g. \"...?id=SE0720305&id=SE0720086\".",
+            "description": "Comma separated list of N2000 site codes (_\"kod\"_). E.g. \"...?id=SE0720305&id=SE0720086\".",
             "style": "form",
             "explode": true,
             "schema": {
@@ -455,7 +455,7 @@
         "tags": [
           "Supporting data"
         ],
-        "summary": "All area types for N2000 areas",
+        "summary": "All site types for N2000 sites",
         "operationId": "omrader_omradestyper",
         "responses": {
           "200": {
@@ -477,16 +477,16 @@
     "/omrade/{id}": {
       "get": {
         "tags": [
-          "N2000 areas"
+          "N2000 sites"
         ],
-        "summary": "Single N2000 area by ID",
-        "description": "Retrieving a single area brings more attributes than in the list of areas",
+        "summary": "Single N2000 site by ID",
+        "description": "Retrieving a single site brings more attributes than in the list of sites",
         "operationId": "omrade_id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "The area code (\"kod\"). e.g. SE0820211.",
+            "description": "The site code (\"kod\"). e.g. SE0820211.",
             "required": true,
             "schema": {
               "type": "string"
@@ -499,7 +499,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/N2000AreaExtended"
+                  "$ref": "#/components/schemas/N2000SiteExtended"
                 }
               }
             }
@@ -513,16 +513,16 @@
     "/omrade/{id}/extentAsWkt": {
       "get": {
         "tags": [
-          "N2000 areas"
+          "N2000 sites"
         ],
-        "summary": "Geographical extent of the N2000 area",
+        "summary": "Geographical extent of the N2000 site",
         "description": "Note that the response is in [WKT](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry) format, encoded as [SWEREF99 / EPSG:3006](https://epsg.io/3006).",
         "operationId": "omrade_id_extentAsWkt",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Area code (\"kod\"), e.g. SE0820211",
+            "description": "Site code (\"kod\"), e.g. SE0820211",
             "required": true,
             "schema": {
               "type": "string"
@@ -549,15 +549,15 @@
     "/omrade/{id}/wkt": {
       "get": {
         "tags": [
-          "N2000 areas"
+          "N2000 sites"
         ],
-        "summary": "Geographical representation of the N2000 area.",
+        "summary": "Geographical representation of the N2000 site.",
         "operationId": "omrade_id_wkt",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Area code (\"kod\"), e.g. SE0820211",
+            "description": "Site code (\"kod\"), e.g. SE0820211",
             "required": true,
             "schema": {
               "type": "string"
@@ -584,15 +584,15 @@
     "/omrade/{id}/dokument": {
       "get": {
         "tags": [
-          "N2000 areas"
+          "N2000 sites"
         ],
-        "summary": "All documents for a specific N2000 area",
+        "summary": "All documents for a specific N2000 site",
         "operationId": "omrade_kod_dokument",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Area code (\"kod\"), e.g. SE0820211",
+            "description": "Site code (\"kod\"), e.g. SE0820211",
             "required": true,
             "schema": {
               "type": "string"
@@ -622,15 +622,15 @@
     "/omrade/{id}/arter": {
       "get": {
         "tags": [
-          "N2000 areas"
+          "N2000 sites"
         ],
-        "summary": "All species within a N2000 area",
+        "summary": "All species within a N2000 site",
         "operationId": "omrade_omradeskod_arter",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Area code (\"kod\"), e.g. SE0820211",
+            "description": "Site code (\"kod\"), e.g. SE0820211",
             "required": true,
             "schema": {
               "type": "string"
@@ -645,7 +645,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/SpeciesInArea"
+                    "$ref": "#/components/schemas/SpeciesInSite"
                   }
                 }
               }
@@ -660,15 +660,15 @@
     "/omrade/{id}/naturtyper": {
       "get": {
         "tags": [
-          "N2000 areas"
+          "N2000 sites"
         ],
-        "summary": "All nature types within a N2000 area",
+        "summary": "All nature types within a N2000 site",
         "operationId": "omrade_id_naturtyper",
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Area code (\"kod\"), e.g. SE0820211",
+            "description": "Site code (\"kod\"), e.g. SE0820211",
             "required": true,
             "schema": {
               "type": "string"
@@ -714,7 +714,7 @@
               },
               "omradesKod": {
                 "type": "string",
-                "description": "Area code (identifier)"
+                "description": "Site code (identifier)"
               },
               "utbredningHA": {
                 "type": "number",
@@ -725,7 +725,7 @@
           }
         }
       },
-      "SpeciesInArea": {
+      "SpeciesInSite": {
         "properties": {
           "art": {
             "type": "object",
@@ -740,7 +740,7 @@
               },
               "omradesKod": {
                 "type": "string",
-                "description": "Area code"
+                "description": "Site code"
               }
             }
           }
@@ -819,7 +819,7 @@
               },
               "kod": {
                 "type": "string",
-                "description": "The area code (_\"kod\"_) the document relates to"
+                "description": "The site code (_\"kod\"_) the document relates to"
               },
               "mimeType": {
                 "type": "string",
@@ -837,23 +837,23 @@
           }
         }
       },
-      "N2000Area": {
+      "N2000Site": {
         "properties": {
           "omrade": {
             "type": "object",
             "properties": {
               "kod": {
                 "type": "string",
-                "description": "Identifier for area"
+                "description": "Identifier for site"
               },
               "namn": {
                 "type": "string",
-                "description": "Area name"
+                "description": "Site name"
               },
-              "areaHA": {
+              "siteHA": {
                 "type": "integer",
                 "format": "int32",
-                "description": "Size of area in hectare"
+                "description": "Size of site in hectare"
               },
               "kommunerAsText": {
                 "type": "string",
@@ -876,31 +876,31 @@
           }
         }
       },
-      "N2000AreaExtended": {
+      "N2000SiteExtended": {
         "properties": {
           "omrade": {
             "type": "object",
             "properties": {
               "kod": {
                 "type": "string",
-                "description": "Identifier for area"
+                "description": "Identifier for site"
               },
               "namn": {
                 "type": "string",
-                "description": "Area name"
+                "description": "Site name"
               },
-              "areaHA": {
+              "siteHA": {
                 "type": "integer",
                 "format": "int32",
-                "description": "Size of area in hectare"
+                "description": "Size of site in hectare"
               },
               "karaktar": {
                 "type": "string",
-                "description": "Characteristics of the area"
+                "description": "Characteristics of the site"
               },
               "kvalitet": {
                 "type": "string",
-                "description": "Textual description of the area's quality values"
+                "description": "Textual description of the site's quality values"
               },
               "kommunerAsText": {
                 "type": "string",
@@ -916,7 +916,7 @@
               "sacDatum": {
                 "type": "integer",
                 "format": "int32",
-                "description": "Special Areas of Conservation establishment date (yyyymm)"
+                "description": "Special Sites of Conservation establishment date (yyyymm)"
               },
               "sciDatum": {
                 "type": "integer",
@@ -931,7 +931,7 @@
               "spaDatum": {
                 "type": "integer",
                 "format": "int32",
-                "description": "Special Protection Area establishment date (yyyymm)"
+                "description": "Special Protection Site establishment date (yyyymm)"
               },
               "sammanstalltDatum": {
                 "type": "string",
@@ -957,23 +957,23 @@
           }
         }
       },
-      "N2000AreaNoLinks": {
+      "N2000SiteNoLinks": {
         "properties": {
           "omrade": {
             "type": "object",
             "properties": {
               "kod": {
                 "type": "string",
-                "description": "Identifier for area"
+                "description": "Identifier for site"
               },
               "namn": {
                 "type": "string",
-                "description": "Area name"
+                "description": "Site name"
               },
-              "areaHA": {
+              "siteHA": {
                 "type": "integer",
                 "format": "int32",
-                "description": "Size of area in hectare"
+                "description": "Size of site in hectare"
               },
               "kommunerAsText": {
                 "type": "string",

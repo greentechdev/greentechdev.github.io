@@ -5,11 +5,7 @@
     <link>/</link>
     <description>Recent content in Greentechdev is a initiative by the Swedish EPA to provide easy to use open data in the environmental domain on Greentechdev</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-uk</language>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-uk</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Natura 2000 sites</title>
       <link>/data/natura-2000-sites/</link>
