@@ -21,13 +21,6 @@
 "tags": ["sites","geo"]
 }
   , {
-"name": "Industrial facilities",
-"updated": "2020-02-25",
-"description" : "Data related to the environment from industrial facilities in Sweden",
-"permalink" : "/data/industrial-facilities/",
-"tags": ["sites","geo"]
-}
-  , {
 "name": "Natura 2000 sites",
 "updated": "2020-06-10",
 "description" : "The Swedish sites as part of the Natura 2000 network of protected sites for rare species or habitat types",

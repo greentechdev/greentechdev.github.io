@@ -23,17 +23,6 @@ Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees co
     </item>
     
     <item>
-      <title>Industrial facilities</title>
-      <link>/data/industrial-facilities/</link>
-      <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/data/industrial-facilities/</guid>
-      <description>Industrial facilities Data related to the environment from industrial facilities in Sweden&amp;hellip;
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
-    </item>
-    
-    <item>
       <title>Air quality measurements</title>
       <link>/data/air-quality-measurements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -1,9 +1,0 @@
-
-{
-  "name": "Industrial facilities",
-  "updated": "2020-02-25 00:00:00 +0000 UTC",
-  "description" : "Data related to the environment from industrial facilities in Sweden",
-  "permalink" : "/data/industrial-facilities/",
-  "tags": ["sites","geo"],
-  "content" : "\n# Industrial facilities\n\nData related to the environment from industrial facilities in Sweden...\n\n## License & conditions \n\nThe data is licensed under [Creative Commons Zero, CC0](https://creativecommons.org/publicdomain/zero/1.0/).\n\nOur APIs and data are provided \"as is\" without guarantees concerning potential errors in the data, availability and performance of the API and similar.  We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.\n\n## Data model\n\n...\n\n## Distributions\n\nThe data is made available through a HTTP/REST API.\n\n### REST API\n\n...\n\n## Example usage\n\n...\n"
-}
