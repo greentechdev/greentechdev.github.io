@@ -390,6 +390,7 @@ Our APIs and data are provided "as is" without guarantees concerning potential e
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//Region data from https://sv.wikipedia.org/wiki/Sveriges_l%C3%A4n
@@ -400,8 +401,9 @@ Our APIs and data are provided "as is" without guarantees concerning potential e
 
 <span style="color:#8f5902;font-style:italic">//Call the API to get the data
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#8f5902;font-style:italic">//use /nolinks to avoid retrieving data we won&#39;t use
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#8f5902;font-style:italic">//increase the limit to make sure we get all sites
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#8f5902;font-style:italic">//filter by species group (i.e. &#34;artgrupp&#34;)
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">fetch</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;https://nvpub.vic-metria.nu/n2000/rest/omrade/nolinks?artgrupp=F%20-%20Fiskar&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">fetch</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;https://nvpub.vic-metria.nu/n2000/rest/omrade/nolinks?limit=1000&amp;artgrupp=F%20-%20Fiskar&#34;</span><span style="color:#000;font-weight:bold">)</span>
   <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">response</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000">response</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">json</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">)</span>
   <span style="color:#000;font-weight:bold">.</span><span style="color:#000">then</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span> <span style="color:#000;font-weight:bold">=&gt;</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#000">data</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">forEach</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">function</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">item</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
