@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://nvpub.vic-metria.nu/n2000/rest/"
+      "url": "https://nvpub.vic-metria.nu/n2000/rest/v2/"
     }
   ],
   "tags": [
