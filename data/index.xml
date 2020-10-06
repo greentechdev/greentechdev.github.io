@@ -6,10 +6,21 @@
     <description>Recent content in Data on Greentechdev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/data/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Trails and devices in outdoor life</title>
+      <link>/data/trails-and-devices-in-outdoor-life/</link>
+      <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/data/trails-and-devices-in-outdoor-life/</guid>
+      <description>Trails and devices in outdoor life Trails and devices (e.g. toilets, parking lots) in national parks or other nature areas&amp;hellip;
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
+Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
+    </item>
     
     <item>
       <title>Natura 2000 sites</title>
@@ -33,17 +44,6 @@ License &amp;amp; conditions The data is licensed under Creative Commons Zero, C
 The production of the indicators is a joint effort by eight government agencies and the counties.
 Data quality No information.
 License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.  Our APIs and data are provided &#34;as is&#34; without guarantees concerning potential errors in the data, availability and performance of the API and similar.</description>
-    </item>
-    
-    <item>
-      <title>Trails and devices in outdoor life</title>
-      <link>/data/trails-and-devices-in-outdoor-life/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/data/trails-and-devices-in-outdoor-life/</guid>
-      <description>Trails and devices in outdoor life Trails and devices (e.g. toilets, parking lots) in national parks or other nature areas&amp;hellip;
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
     </item>
     
     <item>

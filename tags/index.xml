@@ -6,10 +6,28 @@
     <description>Recent content in Tags on Greentechdev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>API</title>
+      <link>/tags/api/</link>
+      <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>geo</title>
+      <link>/tags/geo/</link>
+      <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/geo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>sites</title>
@@ -30,15 +48,6 @@
     </item>
     
     <item>
-      <title>API</title>
-      <link>/tags/api/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Cookies</title>
       <link>/tags/cookies/</link>
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
@@ -53,15 +62,6 @@
       <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/gdpr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>geo</title>
-      <link>/tags/geo/</link>
-      <pubDate>Mon, 30 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/geo/</guid>
       <description></description>
     </item>
     

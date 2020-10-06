@@ -1,0 +1,98 @@
+openapi: 3.0.1
+servers: [
+  url: https://nvpub.vic-metria.nu/arcgis/rest/services 
+  ]
+info:
+  title: ArcGIS Server REST API for Outdoor Life
+  description: Subset of ArcGIS Server REST API for trails and devices for outdoor life in protected sites.
+  version: "1.0.0"
+paths:
+  /Anordningar_friluftsliv_WFS/MapServer/0/query:
+    get:
+      tags:
+        - devices
+      summary: searches inventory
+      operationId: searchInventory
+      description: |
+        By passing in the appropriate options, you can search for
+        available devices in the system
+      parameters:
+        - in: query
+          name: f
+          description: format,
+          required: true
+          schema:
+            type: string
+            enum: [html, json, geojson]
+          example: geojson
+        - in: query
+          name: where
+          description: SQL-92 where clause for filtering the response on attributes, if no filtering is needed (e.g. if using the spatial filtering) this can be set to "1=1" ¯\\\_(ツ)\_/¯
+          required: true
+          example: SKYDDATOMRADE='Stenshuvud'
+          schema:
+            type: string
+        - in: query
+          name: outFields
+          description: The list of fields to be included in the returned result set. Wildcard "*"" gives all.
+          schema:
+            type: string
+          example: '*'
+        - in: query
+          name: geometry
+          description: A geometry to apply as the spatial filter, to be used with geometryType and spatialRel
+          schema:
+            type: string
+        - in: query
+          name: geometryType
+          description: The type of geometry specified by the geometry parameter, to be used with *geometry* and *spatialRel*
+          schema:
+            type: string
+            enum: [esriGeometryPoint, esriGeometryMultipoint, esriGeometryPolyline, esriGeometryPolygon, esriGeometryEnvelope]
+        - in: query
+          name: spatialRel
+          description: The spatial relationship to be applied to the input geometry while performing the query, to be used with *geometry* and *geometryType*
+          schema:
+            type: string
+            enum: [esriSpatialRelIntersects, esriSpatialRelContains, esriSpatialRelCrosses, esriSpatialRelEnvelopeIntersects, esriSpatialRelIndexIntersects, esriSpatialRelOverlaps, esriSpatialRelTouches, esriSpatialRelWithin]
+        - in: query
+          name: returnCountOnly
+          description: If true, the response only includes the count (number of features/records) that would be returned by a query. Useful for preparing multiple calls to API, see also *exceededTransferLimit* property
+        - in: query
+          name: inSr
+          description: The spatial reference of the input geometry
+        - in: query
+          name: OutSr
+          description: The spatial reference of the output geometries      
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InventoryItem'
+        '400':
+          description: bad input parameter
+components:
+  schemas:
+    Manufacturer:
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          example: ACME Corporation
+        homePage:
+          type: string
+          format: url
+          example: 'https://www.acme-corp.com'
+        phone:
+          type: string
+          example: 408-867-5309
+      type: object
+    InventoryItem:
+      description: A
+    AnordningFullSchema:
+      description: Assuming * in "out fields" param
