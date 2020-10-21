@@ -30,7 +30,7 @@ paths:
           name: where
           description: SQL-92 where clause for filtering the response on attributes, if no filtering is needed (e.g. if using the spatial filtering) this can be set to "1=1" ¯\\\_(ツ)\_/¯
           required: true
-          example: SKYDDATOMRADE='Stenshuvud'
+          example: SKYDDATOMRADE='Store Mosse'
           schema:
             type: string
         - in: query
@@ -101,7 +101,7 @@ paths:
           name: where
           description: SQL-92 where clause for filtering the response on attributes, if no filtering is needed (e.g. if using the spatial filtering) this can be set to "1=1" ¯\\\_(ツ)\_/¯
           required: true
-          example: SKYDDATOMRADE='Stenshuvud'
+          example: SKYDDATOMRADE='Store Mosse'
           schema:
             type: string
         - in: query
@@ -136,7 +136,7 @@ paths:
         - in: query
           name: OutSr
           description: The spatial reference of the output geometries     
-           
+
       responses:
         '200':
           description: search results matching criteria
