@@ -7,12 +7,34 @@ info:
   description: Subset of ArcGIS Server REST API for trails and devices for outdoor life in protected sites.
   version: "1.0.0"
 paths:
+  /Leder_friluftsliv_WFS/MapServer/0/query:
+    get:
+      tags:
+        - trails
+      summary: searches trails
+      operationId: searchDevices
+      description: |
+        By passing in the appropriate options, you can search for
+        available trails in the system
+
+      responses:
+        '200':
+          description: search results matching criteria
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrailFullSchema'
+        '400':
+          description: bad input parameter
+
   /Anordningar_friluftsliv_WFS/MapServer/0/query:
     get:
       tags:
         - devices
-      summary: searches inventory
-      operationId: searchInventory
+      summary: searches devices
+      operationId: searchDevices
       description: |
         By passing in the appropriate options, you can search for
         available devices in the system
@@ -72,27 +94,214 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/InventoryItem'
+                  $ref: '#/components/schemas/DeviceFullSchema'
         '400':
           description: bad input parameter
 components:
   schemas:
-    Manufacturer:
-      required:
-        - name
-      properties:
-        name:
-          type: string
-          example: ACME Corporation
-        homePage:
-          type: string
-          format: url
-          example: 'https://www.acme-corp.com'
-        phone:
-          type: string
-          example: 408-867-5309
+    TrailFullSchema:
+      description: Assuming * in "out fields" param and geojson format
+      $ref: '#/components/schemas/TrailFeatureCollection'
+
+    DeviceFullSchema:
+      description: Assuming * in "out fields" param and geojson format
+      $ref: '#/components/schemas/DeviceFeatureCollection'
+
+    TrailGeometry:
+        type: object
+        description: GeoJSon geometry (LineString)
+        # discriminator: type
+        required:
+          - type
+        externalDocs:
+          url: http://geojson.org/geojson-spec.html#geometry-objects
+        properties:
+          type:
+            type: string
+            enum:
+            - MultiPoint
+            description: the geometry type (always LineString for trails)
+
+    TrailGeometryCollection:
       type: object
-    InventoryItem:
-      description: A
-    AnordningFullSchema:
-      description: Assuming * in "out fields" param
+      description: GeoJSon geometry collection
+      required:
+      - type
+      - geometries
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#geometrycollection
+      properties:
+        type:
+          type: string
+          enum:
+          - GeometryCollection
+        geometries:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrailGeometry'
+        
+    TrailFeature:
+      type: object
+      description: GeoJSon Feature
+      required:
+      - type
+      - id
+      - geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.2
+      properties:
+        type:
+          type: string
+          enum:
+            - Feature
+        id:
+          type: integer
+        geometry:
+          $ref: '#/components/schemas/TrailGeometryCollection'
+        properties:
+          $ref: '#/components/schemas/TrailProperties'
+
+    TrailFeatureCollection:
+      type: object
+      description: GeoJSon Feature collection
+      required:
+      - type
+      - features
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.3
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrailFeature'
+
+    TrailProperties:
+      type: object
+      description: The properties of the trail features, assuming outfields=*
+      properties:
+        OBJECTID:
+          type: integer
+        LEDNAMN:
+          type: string
+        LED_ID:
+          type: string
+        LEDTYP:
+          type: string
+        LEDKATEGORI:
+          type: string
+        LEDMARKERING:
+          type: string
+        SKYDDATOMRADE:
+          type: string
+        STATLIGLED:
+          type: string
+        BESKRIVNING:
+          type: string
+        SHAPE.LEN:
+          type: number
+
+
+
+
+    DeviceGeometry:
+        type: object
+        description: GeoJSon geometry (MultiPoint)
+        # discriminator: type
+        required:
+          - type
+        externalDocs:
+          url: http://geojson.org/geojson-spec.html#geometry-objects
+        properties:
+          type:
+            type: string
+            enum:
+            - MultiPoint
+            description: the geometry type (always MultiPoint for devices)
+       
+    DeviceGeometryCollection:
+      type: object
+      description: GeoJSon geometry collection
+      required:
+      - type
+      - geometries
+      externalDocs:
+        url: http://geojson.org/geojson-spec.html#geometrycollection
+      properties:
+        type:
+          type: string
+          enum:
+          - GeometryCollection
+        geometries:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceGeometry'
+        
+    DeviceFeature:
+      type: object
+      description: GeoJSon Feature
+      required:
+      - type
+      - id
+      - geometry
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.2
+      properties:
+        type:
+          type: string
+          enum:
+            - Feature
+        id:
+          type: integer
+        geometry:
+          $ref: '#/components/schemas/DeviceGeometryCollection'
+        properties:
+          $ref: '#/components/schemas/DeviceProperties'
+
+    DeviceFeatureCollection:
+      type: object
+      description: GeoJSon Feature collection
+      required:
+      - type
+      - features
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.3
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/DeviceFeature'
+
+    DeviceProperties:
+      type: object
+      description: The properties of the device features, assuming outfields=*
+      properties:
+        OBJECTID:
+          type: integer
+        ANORDNINGSNAMN:
+          type: string
+        ANORDNING_ID:
+          type: string
+        TYP:
+          type: string
+        UNDERTYP:
+          type: string
+        SKYDDATOMRADE:
+          type: string
+        STATLIGLED:
+          type: string
+        BESKRIVNING:
+          type: string
+        NP:
+          type: integer
+        SKYDDSTYP_KOD:
+          type: string
+
+
