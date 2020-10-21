@@ -59,13 +59,19 @@ paths:
         - in: query
           name: returnCountOnly
           description: If true, the response only includes the count (number of features/records) that would be returned by a query. Useful for preparing multiple calls to API, see also *exceededTransferLimit* property
+          schema:
+            type: boolean
         - in: query
           name: inSr
           description: The spatial reference of the input geometry
+          schema:
+            type: string
         - in: query
           name: OutSr
           description: The spatial reference of the output geometries 
-
+          schema:
+            type: string
+            
       responses:
         '200':
           description: search results matching criteria
@@ -77,6 +83,9 @@ paths:
                   $ref: '#/components/schemas/TrailFullSchema'
         '400':
           description: bad input parameter
+        '500':
+          description: internal server error
+
 
   /Anordningar_friluftsliv_WFS/MapServer/0/query:
     get:
@@ -130,12 +139,18 @@ paths:
         - in: query
           name: returnCountOnly
           description: If true, the response only includes the count (number of features/records) that would be returned by a query. Useful for preparing multiple calls to API, see also *exceededTransferLimit* property
+          schema:
+            type: boolean
         - in: query
           name: inSr
           description: The spatial reference of the input geometry
+          schema:
+            type: string
         - in: query
           name: OutSr
-          description: The spatial reference of the output geometries     
+          description: The spatial reference of the output geometries 
+          schema:
+            type: string 
 
       responses:
         '200':
@@ -148,87 +163,11 @@ paths:
                   $ref: '#/components/schemas/DeviceFullSchema'
         '400':
           description: bad input parameter
+        '500':
+          description: internal server error
 components:
   schemas:
-    TrailFullSchema:
-      description: Assuming * in "out fields" param and geojson format
-      $ref: '#/components/schemas/TrailFeatureCollection'
 
-    DeviceFullSchema:
-      description: Assuming * in "out fields" param and geojson format
-      $ref: '#/components/schemas/DeviceFeatureCollection'
-
-    TrailGeometry:
-        type: object
-        description: GeoJSon geometry (LineString)
-        # discriminator: type
-        required:
-          - type
-        externalDocs:
-          url: http://geojson.org/geojson-spec.html#geometry-objects
-        properties:
-          type:
-            type: string
-            enum:
-            - LineString
-            description: the geometry type (always LineString for trails)
-
-    TrailGeometryCollection:
-      type: object
-      description: GeoJSon geometry collection
-      required:
-      - type
-      - geometries
-      externalDocs:
-        url: http://geojson.org/geojson-spec.html#geometrycollection
-      properties:
-        type:
-          type: string
-          enum:
-          - GeometryCollection
-        geometries:
-          type: array
-          items:
-            $ref: '#/components/schemas/TrailGeometry'
-        
-    TrailFeature:
-      type: object
-      description: GeoJSon Feature
-      required:
-      - type
-      - id
-      - geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.2
-      properties:
-        type:
-          type: string
-          enum:
-            - Feature
-        id:
-          type: integer
-        geometry:
-          $ref: '#/components/schemas/TrailGeometryCollection'
-        properties:
-          $ref: '#/components/schemas/TrailProperties'
-
-    TrailFeatureCollection:
-      type: object
-      description: GeoJSon Feature collection
-      required:
-      - type
-      - features
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.3
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/TrailFeature'
 
     TrailProperties:
       type: object
@@ -256,80 +195,6 @@ components:
           type: number
 
 
-
-
-    DeviceGeometry:
-        type: object
-        description: GeoJSon geometry (MultiPoint)
-        # discriminator: type
-        required:
-          - type
-        externalDocs:
-          url: http://geojson.org/geojson-spec.html#geometry-objects
-        properties:
-          type:
-            type: string
-            enum:
-            - MultiPoint
-            description: the geometry type (always MultiPoint for devices)
-       
-    DeviceGeometryCollection:
-      type: object
-      description: GeoJSon geometry collection
-      required:
-      - type
-      - geometries
-      externalDocs:
-        url: http://geojson.org/geojson-spec.html#geometrycollection
-      properties:
-        type:
-          type: string
-          enum:
-          - GeometryCollection
-        geometries:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceGeometry'
-        
-    DeviceFeature:
-      type: object
-      description: GeoJSon Feature
-      required:
-      - type
-      - id
-      - geometry
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.2
-      properties:
-        type:
-          type: string
-          enum:
-            - Feature
-        id:
-          type: integer
-        geometry:
-          $ref: '#/components/schemas/DeviceGeometryCollection'
-        properties:
-          $ref: '#/components/schemas/DeviceProperties'
-
-    DeviceFeatureCollection:
-      type: object
-      description: GeoJSon Feature collection
-      required:
-      - type
-      - features
-      externalDocs:
-        url: https://tools.ietf.org/html/rfc7946#section-3.3
-      properties:
-        type:
-          type: string
-          enum:
-          - FeatureCollection
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/DeviceFeature'
-
     DeviceProperties:
       type: object
       description: The properties of the device features, assuming outfields=*
@@ -356,3 +221,112 @@ components:
           type: string
 
 
+    TrailFullSchema:
+      description: Data model for trails service, assuming * in "out fields" param and geojson format
+      required:
+      - type
+      - features
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.3
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            type: object
+            description: GeoJSon Feature
+            required:
+            - type
+            - id
+            - geometry
+            externalDocs:
+              url: https://tools.ietf.org/html/rfc7946#section-3.2
+            properties:
+              type:
+                type: string
+                enum:
+                  - Feature
+              id:
+                type: integer
+              geometry:
+                type: object
+                description: GeoJSon geometry (LineString)
+                required:
+                - type
+                - geometry
+                externalDocs:
+                  url: http://geojson.org/geojson-spec.html#geometry-objects
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - LineString
+                    description: the geometry type (always LineString for trails)        
+                  coordinates:
+                    type: array
+                    items:
+                      type: array
+                      maxItems: 2
+                      minItems: 2
+                      items:
+                        type: number
+              properties:
+                $ref: '#/components/schemas/TrailProperties'
+
+    DeviceFullSchema:
+      description: Data model for devices service, assuming * in "out fields" param and geojson format
+      required:
+      - type
+      - features
+      externalDocs:
+        url: https://tools.ietf.org/html/rfc7946#section-3.3
+      properties:
+        type:
+          type: string
+          enum:
+          - FeatureCollection
+        features:
+          type: array
+          items:
+            type: object
+            description: GeoJSon Feature
+            required:
+            - type
+            - id
+            - geometry
+            externalDocs:
+              url: https://tools.ietf.org/html/rfc7946#section-3.2
+            properties:
+              type:
+                type: string
+                enum:
+                  - Feature
+              id:
+                type: integer
+              geometry:
+                type: object
+                description: GeoJSon geometry (MultiPoint)
+                required:
+                - type
+                - geometry
+                externalDocs:
+                  url: http://geojson.org/geojson-spec.html#geometry-objects
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - MultiPoint
+                    description: the geometry type (always MultiPoint for devices)        
+                  coordinates:
+                    type: array
+                    items:
+                      type: array
+                      maxItems: 2
+                      minItems: 2
+                      items:
+                        type: number
+              properties:
+                $ref: '#/components/schemas/DeviceProperties'
