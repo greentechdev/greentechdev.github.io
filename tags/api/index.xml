@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>National Protected Sites Registry (Naturvårdsregistret, NVR)</title>
+      <title>Naturvårdsregistret, NVR</title>
       <link>/data/nvr/</link>
       <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/data/nvr/</guid>
-      <description>NVR The list of protected nature sites in Sweden (Naturvårdsregistret, NVR)
-&amp;hellip; TBD NAPS?
+      <description>NVR The official list of protected nature sites in Sweden (Naturvårdsregistret, NVR)
+&amp;hellip; TBD
 License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
 Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
     </item>
