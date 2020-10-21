@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  description: Translation TBD
+  description: Translation IN PROGRESS
   version: 2.1.0-0
   title: REST API for Naturvårdsregistret
 servers:
@@ -190,7 +190,7 @@ paths:
   "/miljomal/{nvrId}/{status}/{namn}":
     get:
       tags:
-        - MiljomalService
+        - Environmental objectives
       description: Returnerar ett miljömål för ett område.
       operationId: get3
       parameters:
@@ -259,7 +259,7 @@ paths:
   /nmdklass/niva1:
     get:
       tags:
-        - NmdKlassService
+        - NMD classes
       description: >-
         Returnerar en lista över alla NmdKlasser på nivå 1 som används inom
         nvr-områden.
@@ -287,7 +287,7 @@ paths:
   /nmdklass/niva2:
     get:
       tags:
-        - NmdKlassService
+        - NMD classes
       description: >-
         Returnerar en lista över alla NmdKlasser på nivå 2 som används inom
         nvr-områden.
@@ -315,7 +315,7 @@ paths:
   /nmdklass/niva3:
     get:
       tags:
-        - NmdKlassService
+        - NMD classes
       description: >-
         Returnerar en lista över alla NmdKlasser på nivå 3 som används inom
         nvr-områden.
@@ -343,7 +343,7 @@ paths:
   "/nmdklass/{nvrId}/{status}/{nmdKlassKod}":
     get:
       tags:
-        - NmdKlassService
+        - NMD classes
       description: Returnerar en NmdKlass.
       operationId: getOmradesNmdKlasser
       parameters:
@@ -1130,7 +1130,7 @@ paths:
   "/syfte/{nvrId}/{status}/{id}":
     get:
       tags:
-        - SyfteService
+        - Purposes
       description: Returnerar ett syfte för ett specifikt område
       operationId: get5
       parameters:
