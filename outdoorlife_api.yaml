@@ -10,7 +10,7 @@ paths:
   /Leder_friluftsliv_WFS/MapServer/0/query:
     get:
       tags:
-        - trails
+        - Trails
       summary: searches trails
       operationId: searchDevices
       description: |
@@ -90,7 +90,7 @@ paths:
   /Anordningar_friluftsliv_WFS/MapServer/0/query:
     get:
       tags:
-        - devices
+        - Devices
       summary: searches devices
       operationId: searchDevices
       description: |
