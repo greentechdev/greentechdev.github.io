@@ -1,0 +1,1586 @@
+openapi: 3.0.1
+info:
+  description: Translation TBD
+  version: 2.1.0-0
+  title: REST API for Naturvårdsregistret
+servers:
+  - url: https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest
+
+tags:
+  - name: Sites
+  - name: Documents
+  - name: Environmental objectives
+  - name: Regulations
+  - name: Purposes
+  - name: NMD classes
+
+paths:
+  "/beslutsdokument/{nvrId}/{status}/{id}":
+    get:
+      tags:
+        - Documents
+      description: Returnerar ett beslutsdokument för ett specifikt område.
+      operationId: get
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus för ett område
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: Id
+          schema:
+            type: string
+          required: true
+        - name: nvrId
+          in: path
+          description: NVR-id för ett område
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Beslutsdokument
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Beslutsdokument"
+              examples:
+                response:
+                  value:
+                    nvrId: ...
+                    beslutsId: ...
+                    beslutsstatus: ...
+                    beslutstyp: ...
+                    beslutsmyndighet: ...
+                    diarienummer: ...
+                    beslutsdatum: 12345
+                    gallandedatum: 12345
+                    id: ...
+                    namn: ...
+                    typ: ...
+                    mimeType: ...
+                    fileUrl: ...
+                    atomLink:
+                      - {}
+                      - {}
+  "/foreskriftsomrade/{nvrId}/{status}/{objectid}":
+    get:
+      tags:
+        - Regulations
+      description: Returnerar ett föreskriftsområde för ett specifikt område.
+      operationId: get2
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus för ett område
+          schema:
+            type: string
+          required: true
+        - name: nvrId
+          in: path
+          description: NVR-id för ett område
+          schema:
+            type: string
+          required: true
+        - name: objectid
+          in: path
+          description: Objectid
+          schema:
+            type: integer
+            format: int64
+          required: true
+      responses:
+        "200":
+          description: Foreskriftsomrade
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Foreskriftsomrade"
+              examples:
+                response:
+                  value:
+                    objectId: 12345
+                    nvrId: ...
+                    beslutsstatus: ...
+                    foreskriftstyp: ...
+                    foreskriftssubtyp: ...
+                    franDatum: ...
+                    tillDatum: ...
+                    areaHa: 12345
+                    foreskriftstypKod: ...
+                    foreskriftssubtypKod: ...
+                    atomLink:
+                      - {}
+                      - {}
+  /foreskriftstyper:
+    get:
+      tags:
+        - Regulations
+      description: |-
+        Returnerar en lista av föreskriftstyper.
+        Föreskriftstyper kan användas som sökparameter vid sökning av områden.
+      operationId: getForeskrifterList
+      responses:
+        "200":
+          description: List(Typ)
+          content:
+            application/json:
+              schema:
+                description: List(Typ)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+  /foreskriftssubtyper:
+    get:
+      tags:
+        - Regulations
+      description: >-
+        Returnerar en lista av föreskriftssubtyper.
+
+        Föreskriftssubtyper kan användas som sökparameter vid sökning av områden.
+      operationId: getForeskriftsSubtyperList
+      responses:
+        "200":
+          description: List(Typ)
+          content:
+            application/json:
+              schema:
+                description: List(Typ)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+
+  /miljomal:
+    get:
+      tags:
+        - Environmental objectives
+      description: >-
+        Returnerar en lista av miljömål.
+
+        Miljömål som retuneras kan användas som sökparameter vid sökning av områden
+      operationId: getMiljomalList
+      responses:
+        "200":
+          description: List(Typ)
+          content:
+            application/json:
+              schema:
+                description: List(Typ)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+  "/miljomal/{nvrId}/{status}/{namn}":
+    get:
+      tags:
+        - MiljomalService
+      description: Returnerar ett miljömål för ett område.
+      operationId: get3
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: ""
+          schema:
+            type: string
+          required: true
+        - name: namn
+          in: path
+          description: ""
+          schema:
+            type: string
+          required: true
+        - name: nvrId
+          in: path
+          description: ""
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Miljomal
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Miljomal"
+              examples:
+                response:
+                  value:
+                    nvrId: ...
+                    beslutsstatus: ...
+                    namn: ...
+                    atomLink:
+                      - {}
+                      - {}
+
+  /nmdklass:
+    get:
+      tags:
+        - NMD classes
+      description: >-
+        Returnerar en lista över alla NndKlasser som används inom nvr-områden.
+
+        NndKlasserna som returneras är giltiga som sökparameter i en sökning av nvr-områden.
+
+
+        Returnerat data kan användas som sökparameter vid sökning av områden.
+      operationId: getNmdKlasser
+      responses:
+        "200":
+          description: List<Typ>
+          content:
+            application/json:
+              schema:
+                description: List<Typ>
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+  /nmdklass/niva1:
+    get:
+      tags:
+        - NmdKlassService
+      description: >-
+        Returnerar en lista över alla NmdKlasser på nivå 1 som används inom
+        nvr-områden.
+
+        NmdKlasserna som returneras är giltiga som sökparameter i en sökning av nvr-områden.
+
+
+        Returnerat data kan användas som sökparameter vid sökning av områden.
+      operationId: getNmdKlasserNiva1List
+      responses:
+        "200":
+          description: List<Typ>
+          content:
+            application/json:
+              schema:
+                description: List<Typ>
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+  /nmdklass/niva2:
+    get:
+      tags:
+        - NmdKlassService
+      description: >-
+        Returnerar en lista över alla NmdKlasser på nivå 2 som används inom
+        nvr-områden.
+
+        NmdKlasserna som returneras är giltiga som sökparameter i en sökning av nvr-områden.
+
+
+        Returnerat data kan användas som sökparameter vid sökning av områden.
+      operationId: getNmdKlasserNiva2List
+      responses:
+        "200":
+          description: List<Typ>
+          content:
+            application/json:
+              schema:
+                description: List<Typ>
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+  /nmdklass/niva3:
+    get:
+      tags:
+        - NmdKlassService
+      description: >-
+        Returnerar en lista över alla NmdKlasser på nivå 3 som används inom
+        nvr-områden.
+
+        NmdKlasserna som returneras är giltiga som sökparameter i en sökning av nvr-områden.
+
+
+        Returnerat data kan användas som sökparameter vid sökning av områden.
+      operationId: getNmdKlasserNiva3List
+      responses:
+        "200":
+          description: List<Typ>
+          content:
+            application/json:
+              schema:
+                description: List<Typ>
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+  "/nmdklass/{nvrId}/{status}/{nmdKlassKod}":
+    get:
+      tags:
+        - NmdKlassService
+      description: Returnerar en NmdKlass.
+      operationId: getOmradesNmdKlasser
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus from Omrade
+          schema:
+            type: string
+          required: true
+        - name: nmdKlassKod
+          in: path
+          description: NmdKlassKod
+          schema:
+            type: string
+          required: true
+        - name: nvrId
+          in: path
+          description: NvrId from Omrade
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: NmdKlass
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NmdKlass"
+              examples:
+                response:
+                  value:
+                    nvrId: ...
+                    beslutsstatus: ...
+                    kod: ...
+                    foreskriftstyp: ...
+                    namn: ...
+                    areaHa: 12345
+                    foreskriftstypNamn: ...
+                    atomLink:
+                      - {}
+                      - {}
+
+  /omrade:
+    get:
+      tags:
+        - Sites
+      description: Returnerar en lista med områden.
+      operationId: find
+      parameters:
+        - name: beslutsdatum_from
+          in: query
+          description: Beslutsdatum (from) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: beslutsdatum_tom
+          in: query
+          description: Beslutsdatum (to) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: beslutsmyndighet
+          in: query
+          description: Beslutsmyndighet
+          schema:
+            type: string
+        - name: beslutsstatus
+          in: query
+          description: Beslutsstatus (Beslutad, Överklagad, Gällande)
+          schema:
+            type: string
+        - name: foreskriftssubtyp
+          in: query
+          description: Föreskriftssubtyp
+          schema:
+            type: string
+        - name: foreskriftstyp
+          in: query
+          description: Föreskriftstyp
+          schema:
+            type: string
+        - name: forstagangsbeslut
+          in: query
+          description: Förstagångsbeslut
+          schema:
+            type: boolean
+            default: "false"
+        - name: gallandedatum_from
+          in: query
+          description: Gällandedatum (from) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: gallandedatum_tom
+          in: query
+          description: Gällandedatum (to) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: id
+          in: query
+          description: NvrId. Behöver inte vara hela utan sökes som ett prefix.
+          schema:
+            type: string
+        - name: kommun
+          in: query
+          description: Kommunkoden T.ex. 2580 för Luleå.
+          schema:
+            type: string
+        - name: lan
+          in: query
+          description: Länskoden. T.ex. BD för Norrbotten.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: En gräns för hur många resultat som ska returneras.
+          schema:
+            type: integer
+            format: int32
+            default: "100"
+        - name: miljomal
+          in: query
+          description: Miljömål
+          schema:
+            type: string
+        - name: namn
+          in: query
+          description: Namnet på området. Behöver inte vara hela utan sökes som ett prefix.
+          schema:
+            type: string
+        - name: nmdklasskod
+          in: query
+          description: nmdklasskod. Kan hämtas via NmdKlassService.
+          schema:
+            type: string
+        - name: nmdklassniva1kod
+          in: query
+          description: nmdklasskod på nivå 1. Kan hämtas via NmdKlassService.
+          schema:
+            type: string
+        - name: nmdklassniva2kod
+          in: query
+          description: nmdklasskod på nivå 2. Kan hämtas via NmdKlassService.
+          schema:
+            type: string
+        - name: nmdklassniva3kod
+          in: query
+          description: nmdklasskod på nivå 3. Kan hämtas via NmdKlassService.
+          schema:
+            type: string
+        - name: skyddstypkod
+          in: query
+          description: Skyddstypkod
+          schema:
+            type: string
+        - name: skyddstypnamn
+          in: query
+          description: Skyddstypnamn
+          schema:
+            type: string
+        - name: syfte
+          in: query
+          description: Syfte
+          schema:
+            type: string
+        - name: ursprBeslutsdatum_from
+          in: query
+          description: Ursprungligt beslutsdatum (from) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: ursprBeslutsdatum_tom
+          in: query
+          description: Ursprungligt beslutsdatum (to) (yyyy-MM-dd)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List(Omrade)
+          content:
+            application/json:
+              schema:
+                description: List(Omrade)
+                type: array
+                items:
+                  $ref: "#/components/schemas/OmradeDto"
+              examples:
+                response:
+                  value:
+                    - id: ...
+                      beslutsstatus: ...
+                      namn: ...
+                      skyddstyp: ...
+                      lanAsText: ...
+                      kommunerAsText: ...
+                      beslutstyp: ...
+                      beslutsdatum: 12345
+                      ursprBeslutsdatum: 12345
+                      gallandedatum: 12345
+                      iucnKategori: ...
+                      forvaltare: ...
+                      areaHa: 12345
+                      landareaHa: 12345
+                      vattenareaHa: 12345
+                      skogAreaHa: 12345
+                      beslutsmyndighet: ...
+                      atomLink:
+                        - {}
+                        - {}
+  /omrade/beslutsmyndigheter:
+    get:
+      tags:
+        - Sites
+      description: Returnerar en lista av beslutsmyndigheter som kan användas som
+        sökparameter vid sökning av områden.
+      operationId: getBeslutsmyndighetList
+      responses:
+        "200":
+          description: List(Typ)
+          content:
+            application/json:
+              schema:
+                description: List(Typ)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+  /omrade/beslutsstatusar:
+    get:
+      tags:
+        - Sites
+      description: Returnerar en lista av beslutsstatusar som kan användas som sökparameter
+        vid sökning av områden.
+      operationId: getBeslutsstatusList
+      responses:
+        "200":
+          description: List(Typ)
+          content:
+            application/json:
+              schema:
+                description: List(Typ)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+  /omrade/extentAsWkt:
+    get:
+      tags:
+        - Sites
+      description: >-
+        Returnerar ett områdes geometriers extent (som wkt).
+
+        Använder bara id, ej beslutsstatus.
+
+        Inte helt korrekt (pga optimering). Ska ge rätt resultat i de flesta fall.
+      operationId: extentAsWkt
+      parameters:
+        - name: id
+          in: query
+          description: Id
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          description: String
+          content:
+            text/plain;charset=utf-8:
+              schema:
+                description: String
+                type: string
+  /omrade/nolinks:
+    get:
+      tags:
+        - Sites
+      description: |-
+        Returnerar en lista med områden.
+        Resultatet innehåller inte länkar till underresurser (t.ex. NmdKlasser).
+      operationId: findNoLinks
+      parameters:
+        - name: beslutsdatum_from
+          in: query
+          description: Beslutsdatum (from) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: beslutsdatum_tom
+          in: query
+          description: Beslutsdatum (to) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: beslutsmyndighet
+          in: query
+          description: Beslutsmyndighet
+          schema:
+            type: string
+        - name: beslutsstatus
+          in: query
+          description: Beslutsstatus (Beslutad, Överklagad, Gällande)
+          schema:
+            type: string
+        - name: foreskriftssubtyp
+          in: query
+          description: Föreskriftssubtyp
+          schema:
+            type: string
+        - name: foreskriftstyp
+          in: query
+          description: Föreskriftstyp
+          schema:
+            type: string
+        - name: forstagangsbeslut
+          in: query
+          description: Förstagångsbeslut
+          schema:
+            type: boolean
+            default: "false"
+        - name: gallandedatum_from
+          in: query
+          description: Gällandedatum (from) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: gallandedatum_tom
+          in: query
+          description: Gällandedatum (to) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: id
+          in: query
+          description: NvrId. Behöver inte vara hela utan sökes som ett prefix.
+          schema:
+            type: string
+        - name: kommun
+          in: query
+          description: Kommunkoden T.ex. 2580 för Luleå.
+          schema:
+            type: string
+        - name: lan
+          in: query
+          description: Länskoden. T.ex. BD för Norrbotten.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: En gräns för hur många resultat som ska returneras.
+          schema:
+            type: integer
+            format: int32
+            default: "100"
+        - name: miljomal
+          in: query
+          description: Miljömål
+          schema:
+            type: string
+        - name: namn
+          in: query
+          description: Namnet på området. Behöver inte vara hela utan sökes som ett prefix.
+          schema:
+            type: string
+        - name: nmdklasskod
+          in: query
+          description: nmdklasskod. Kan hämtas via NmdKlassService.
+          schema:
+            type: string
+        - name: nmdklassniva1kod
+          in: query
+          description: nmdklasskod på nivå 1. Kan hämtas via NmdKlassService.
+          schema:
+            type: string
+        - name: nmdklassniva2kod
+          in: query
+          description: nmdklasskod på nivå 2. Kan hämtas via NmdKlassService.
+          schema:
+            type: string
+        - name: nmdklassniva3kod
+          in: query
+          description: nmdklasskod på nivå 3. Kan hämtas via NmdKlassService.
+          schema:
+            type: string
+        - name: skyddstypkod
+          in: query
+          description: Skyddstypkod
+          schema:
+            type: string
+        - name: skyddstypnamn
+          in: query
+          description: Skyddstypnamn
+          schema:
+            type: string
+        - name: syfte
+          in: query
+          description: Syfte
+          schema:
+            type: string
+        - name: ursprBeslutsdatum_from
+          in: query
+          description: Ursprungligt beslutsdatum (from) (yyyy-MM-dd)
+          schema:
+            type: string
+        - name: ursprBeslutsdatum_tom
+          in: query
+          description: Ursprungligt beslutsdatum (to) (yyyy-MM-dd)
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List(Omrade)
+          content:
+            application/json:
+              schema:
+                description: List(Omrade)
+                type: array
+                items:
+                  $ref: "#/components/schemas/OmradeDto"
+              examples:
+                response:
+                  value:
+                    - id: ...
+                      beslutsstatus: ...
+                      namn: ...
+                      skyddstyp: ...
+                      lanAsText: ...
+                      kommunerAsText: ...
+                      beslutstyp: ...
+                      beslutsdatum: 12345
+                      ursprBeslutsdatum: 12345
+                      gallandedatum: 12345
+                      iucnKategori: ...
+                      forvaltare: ...
+                      areaHa: 12345
+                      landareaHa: 12345
+                      vattenareaHa: 12345
+                      skogAreaHa: 12345
+                      beslutsmyndighet: ...
+                      atomLink:
+                        - {}
+                        - {}
+  /omrade/skyddstyper:
+    get:
+      tags:
+        - Sites
+      description: >-
+        Returnerar en lista av Skyddstyper.
+
+        Skyddstyper som returneras är giltiga som sökparameter vid sökning av områden
+      operationId: getSkyddstyperList
+      responses:
+        "200":
+          description: List(Typ)
+          content:
+            application/json:
+              schema:
+                description: List(Typ)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+  "/omrade/{id}/{status}":
+    get:
+      tags:
+        - Sites
+      description: Returnerar ett område.
+      operationId: get4
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: NVR-id
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Omrade
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OmradeDto"
+              examples:
+                response:
+                  value:
+                    id: ...
+                    beslutsstatus: ...
+                    namn: ...
+                    skyddstyp: ...
+                    lanAsText: ...
+                    kommunerAsText: ...
+                    beslutstyp: ...
+                    beslutsdatum: 12345
+                    ursprBeslutsdatum: 12345
+                    gallandedatum: 12345
+                    iucnKategori: ...
+                    forvaltare: ...
+                    areaHa: 12345
+                    landareaHa: 12345
+                    vattenareaHa: 12345
+                    skogAreaHa: 12345
+                    beslutsmyndighet: ...
+                    atomLink:
+                      - {}
+                      - {}
+  "/omrade/{id}/{status}/beslutsdokument":
+    get:
+      tags:
+        - Sites
+      description: Returnerar en lista med beslutsdokument för ett specifikt område
+      operationId: getOmradesBeslutsdokument
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus för ett område,
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: NVR-id för ett område,
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: List(Beslutsdokument)
+          content:
+            application/json:
+              schema:
+                description: List(Beslutsdokument)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Beslutsdokument"
+              examples:
+                response:
+                  value:
+                    - nvrId: ...
+                      beslutsId: ...
+                      beslutsstatus: ...
+                      beslutstyp: ...
+                      beslutsmyndighet: ...
+                      diarienummer: ...
+                      beslutsdatum: 12345
+                      gallandedatum: 12345
+                      id: ...
+                      namn: ...
+                      typ: ...
+                      mimeType: ...
+                      fileUrl: ...
+                      atomLink:
+                        - {}
+                        - {}
+  "/omrade/{id}/{status}/extentAsWkt":
+    get:
+      tags:
+        - Sites
+      description: Returnerar extent (som wkt) för geometrin för ett område.
+      operationId: extentAsWkt
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutssatus
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: Id
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: String
+          content:
+            text/plain;charset=utf-8:
+              schema:
+                description: String
+                type: string
+  "/omrade/{id}/{status}/foreskriftsomraden":
+    get:
+      tags:
+        - Sites
+      description: Returnerar en lista av föreskriftsområden för ett specifikt område.
+      operationId: getOmradesForeskriftsomraden
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus för ett område,
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: NVR-id för ett område,
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: List(Syfte)
+          content:
+            application/json:
+              schema:
+                description: List(Syfte)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Foreskriftsomrade"
+              examples:
+                response:
+                  value:
+                    - objectId: 12345
+                      nvrId: ...
+                      beslutsstatus: ...
+                      foreskriftstyp: ...
+                      foreskriftssubtyp: ...
+                      franDatum: ...
+                      tillDatum: ...
+                      areaHa: 12345
+                      foreskriftstypKod: ...
+                      foreskriftssubtypKod: ...
+                      atomLink:
+                        - {}
+                        - {}
+  "/omrade/{id}/{status}/miljomal":
+    get:
+      tags:
+        - Sites
+      description: Returnerar en lista av miljömål för ett specifikt område
+      operationId: getOmradesMiljomal
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus för ett område,
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: NVR-id för området,
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: List(Syfte)
+          content:
+            application/json:
+              schema:
+                description: List(Syfte)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Miljomal"
+              examples:
+                response:
+                  value:
+                    - nvrId: ...
+                      beslutsstatus: ...
+                      namn: ...
+                      atomLink:
+                        - {}
+                        - {}
+  "/omrade/{id}/{status}/nmdklasser":
+    get:
+      tags:
+        - Sites
+      description: Returnerar en lista av NmdKlasser som finns inom ett specifikt
+        nvr-område.
+      operationId: getOmradesNaturtypNmd
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus för ett område,
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: NVR-id för ett område,
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: List(NmdKlass)
+          content:
+            application/json:
+              schema:
+                description: List(NmdKlass)
+                type: array
+                items:
+                  $ref: "#/components/schemas/NmdKlass"
+              examples:
+                response:
+                  value:
+                    - nvrId: ...
+                      beslutsstatus: ...
+                      kod: ...
+                      foreskriftstyp: ...
+                      namn: ...
+                      areaHa: 12345
+                      foreskriftstypNamn: ...
+                      atomLink:
+                        - {}
+                        - {}
+  "/omrade/{id}/{status}/syften":
+    get:
+      tags:
+        - Sites
+      description: Returnerar en lista av syften för ett specifikt område.
+      operationId: getOmradesSyften
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus för ett område,
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: NVR-id för ett område,
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: List(Syfte)
+          content:
+            application/json:
+              schema:
+                description: List(Syfte)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Syfte"
+              examples:
+                response:
+                  value:
+                    - nvrId: ...
+                      beslutsstatus: ...
+                      id: ...
+                      namn: ...
+                      beskrivning: ...
+                      atomLink:
+                        - {}
+                        - {}
+  "/omrade/{id}/{status}/wkt":
+    get:
+      tags:
+        - Sites
+      description: Returnerar geometri (som wkt) för ett område.
+      operationId: wkt
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: Id
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: String
+          content:
+            text/plain;charset=utf-8:
+              schema:
+                description: String
+                type: string
+  "/syfte/{nvrId}/{status}/{id}":
+    get:
+      tags:
+        - SyfteService
+      description: Returnerar ett syfte för ett specifikt område
+      operationId: get5
+      parameters:
+        - name: beslutsstatus
+          in: path
+          description: Beslutsstatus för ett område
+          schema:
+            type: string
+          required: true
+        - name: id
+          in: path
+          description: Id
+          schema:
+            type: string
+          required: true
+        - name: nvrId
+          in: path
+          description: NVR-id för ett område.
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: Syfte
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Syfte"
+              examples:
+                response:
+                  value:
+                    nvrId: ...
+                    beslutsstatus: ...
+                    id: ...
+                    namn: ...
+                    beskrivning: ...
+                    atomLink:
+                      - {}
+                      - {}
+
+  /syften:
+    get:
+      tags:
+        - Purposes
+      description: |-
+        Returnerar en lista av Syften.
+        Syften som returneras är giltiga som sökparameter vid sökning av områden
+      operationId: getSyftenList
+      responses:
+        "200":
+          description: List(Typ)
+          content:
+            application/json:
+              schema:
+                description: List(Typ)
+                type: array
+                items:
+                  $ref: "#/components/schemas/Typ"
+              examples:
+                response:
+                  value:
+                    - key: ...
+                      value: ...
+
+components:
+  schemas:
+    Beslutsdokument:
+      type: object
+      title: Beslutsdokument
+      properties:
+        nvrId:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsId:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsstatus:
+          readOnly: false
+          description: ""
+          type: string
+        beslutstyp:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsmyndighet:
+          readOnly: false
+          description: ""
+          type: string
+        diarienummer:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsdatum:
+          readOnly: false
+          description: ""
+          type: integer
+          format: int32
+        gallandedatum:
+          readOnly: false
+          description: ""
+          type: integer
+          format: int32
+        id:
+          readOnly: false
+          description: ""
+          type: string
+        namn:
+          readOnly: false
+          description: ""
+          type: string
+        typ:
+          readOnly: false
+          description: ""
+          type: string
+        mimeType:
+          readOnly: false
+          description: ""
+          type: string
+        fileUrl:
+          readOnly: false
+          description: ""
+          type: string
+        atomLink:
+          readOnly: false
+          description: ""
+          type: array
+          items:
+            type: object
+      example:
+        nvrId: ...
+        beslutsId: ...
+        beslutsstatus: ...
+        beslutstyp: ...
+        beslutsmyndighet: ...
+        diarienummer: ...
+        beslutsdatum: 12345
+        gallandedatum: 12345
+        id: ...
+        namn: ...
+        typ: ...
+        mimeType: ...
+        fileUrl: ...
+        atomLink:
+          - {}
+          - {}
+      description: ""
+    Foreskriftsomrade:
+      type: object
+      title: Foreskriftsomrade
+      properties:
+        objectId:
+          readOnly: false
+          description: ""
+          type: integer
+          format: int64
+        nvrId:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsstatus:
+          readOnly: false
+          description: ""
+          type: string
+        foreskriftstyp:
+          readOnly: false
+          description: ""
+          type: string
+        foreskriftssubtyp:
+          readOnly: false
+          description: ""
+          type: string
+        franDatum:
+          readOnly: false
+          description: ""
+          type: string
+        tillDatum:
+          readOnly: false
+          description: ""
+          type: string
+        areaHa:
+          readOnly: false
+          description: ""
+          type: number
+        foreskriftstypKod:
+          readOnly: false
+          description: ""
+          type: string
+        foreskriftssubtypKod:
+          readOnly: false
+          description: ""
+          type: string
+        atomLink:
+          readOnly: false
+          description: ""
+          type: array
+          items:
+            type: object
+      example:
+        objectId: 12345
+        nvrId: ...
+        beslutsstatus: ...
+        foreskriftstyp: ...
+        foreskriftssubtyp: ...
+        franDatum: ...
+        tillDatum: ...
+        areaHa: 12345
+        foreskriftstypKod: ...
+        foreskriftssubtypKod: ...
+        atomLink:
+          - {}
+          - {}
+      description: ""
+    Miljomal:
+      type: object
+      title: Miljomal
+      properties:
+        nvrId:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsstatus:
+          readOnly: false
+          description: ""
+          type: string
+        namn:
+          readOnly: false
+          description: ""
+          type: string
+        atomLink:
+          readOnly: false
+          description: ""
+          type: array
+          items:
+            type: object
+      example:
+        nvrId: ...
+        beslutsstatus: ...
+        namn: ...
+        atomLink:
+          - {}
+          - {}
+      description: ""
+    NmdKlass:
+      type: object
+      title: NmdKlass
+      properties:
+        nvrId:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsstatus:
+          readOnly: false
+          description: ""
+          type: string
+        kod:
+          readOnly: false
+          description: ""
+          type: string
+        foreskriftstyp:
+          readOnly: false
+          description: ""
+          type: string
+        namn:
+          readOnly: false
+          description: ""
+          type: string
+        areaHa:
+          readOnly: false
+          description: ""
+          type: number
+        foreskriftstypNamn:
+          readOnly: false
+          description: ""
+          type: string
+        atomLink:
+          readOnly: false
+          description: ""
+          type: array
+          items:
+            type: object
+      example:
+        nvrId: ...
+        beslutsstatus: ...
+        kod: ...
+        foreskriftstyp: ...
+        namn: ...
+        areaHa: 12345
+        foreskriftstypNamn: ...
+        atomLink:
+          - {}
+          - {}
+      description: ""
+    OmradeDto:
+      type: object
+      title: Omrade
+      properties:
+        id:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsstatus:
+          readOnly: false
+          description: ""
+          type: string
+        namn:
+          readOnly: false
+          description: ""
+          type: string
+        skyddstyp:
+          readOnly: false
+          description: ""
+          type: string
+        lanAsText:
+          readOnly: false
+          description: ""
+          type: string
+        kommunerAsText:
+          readOnly: false
+          description: ""
+          type: string
+        beslutstyp:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsdatum:
+          readOnly: false
+          description: ""
+          type: integer
+          format: int32
+        ursprBeslutsdatum:
+          readOnly: false
+          description: ""
+          type: integer
+          format: int32
+        gallandedatum:
+          readOnly: false
+          description: ""
+          type: integer
+          format: int32
+        iucnKategori:
+          readOnly: false
+          description: ""
+          type: string
+        forvaltare:
+          readOnly: false
+          description: ""
+          type: string
+        areaHa:
+          readOnly: false
+          description: ""
+          type: number
+        landareaHa:
+          readOnly: false
+          description: ""
+          type: number
+        vattenareaHa:
+          readOnly: false
+          description: ""
+          type: number
+        skogAreaHa:
+          readOnly: false
+          description: ""
+          type: number
+        beslutsmyndighet:
+          readOnly: false
+          description: ""
+          type: string
+        atomLink:
+          readOnly: false
+          description: ""
+          type: array
+          items:
+            type: object
+      example:
+        id: ...
+        beslutsstatus: ...
+        namn: ...
+        skyddstyp: ...
+        lanAsText: ...
+        kommunerAsText: ...
+        beslutstyp: ...
+        beslutsdatum: 12345
+        ursprBeslutsdatum: 12345
+        gallandedatum: 12345
+        iucnKategori: ...
+        forvaltare: ...
+        areaHa: 12345
+        landareaHa: 12345
+        vattenareaHa: 12345
+        skogAreaHa: 12345
+        beslutsmyndighet: ...
+        atomLink:
+          - {}
+          - {}
+      description: ""
+    Syfte:
+      type: object
+      title: Syfte
+      properties:
+        nvrId:
+          readOnly: false
+          description: ""
+          type: string
+        beslutsstatus:
+          readOnly: false
+          description: ""
+          type: string
+        id:
+          readOnly: false
+          description: ""
+          type: string
+        namn:
+          readOnly: false
+          description: ""
+          type: string
+        beskrivning:
+          readOnly: false
+          description: ""
+          type: string
+        atomLink:
+          readOnly: false
+          description: ""
+          type: array
+          items:
+            type: object
+      example:
+        nvrId: ...
+        beslutsstatus: ...
+        id: ...
+        namn: ...
+        beskrivning: ...
+        atomLink:
+          - {}
+          - {}
+      description: ""
+    Typ:
+      type: object
+      title: Typ
+      properties:
+        key:
+          readOnly: false
+          description: ""
+          type: string
+        value:
+          readOnly: false
+          description: ""
+          type: string
+      example:
+        key: ...
+        value: ...
+      description: ""
