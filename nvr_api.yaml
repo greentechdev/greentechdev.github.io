@@ -21,7 +21,7 @@ paths:
       tags:
         - Sites
       summary: All NVR sites
-      operationId: find
+      operationId: omrade
       parameters:
         - name: beslutsdatum_from
           in: query
@@ -167,7 +167,7 @@ paths:
       summary: All NVR sites, without links in the results
       description: Same as _/omrade_, but without the links data (i.e. the
         "atom.link"-property).
-      operationId: findNoLinks
+      operationId: omrade_nolinks
       parameters:
         - name: beslutsdatum_from
           in: query
@@ -310,12 +310,12 @@ paths:
     get:
       tags:
         - Sites
-      summary: Combined geographical extent of one or more N2000 sites
+      summary: Combined geographical extent of one or more sites
       description: Note that the response is in
         [WKT](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry)
         format, encoded as [SWEREF99 TM / EPSG:3006](https://epsg.io/3006).
 
-      operationId: extentAsWkt
+      operationId: omrade_extentAsWkt
       parameters:
         - name: id
           in: query
@@ -341,7 +341,7 @@ paths:
       tags:
         - Sites
       summary: A NVR site
-      operationId: get4
+      operationId: omrade_id
       parameters:
         - name: status
           in: path
@@ -371,7 +371,7 @@ paths:
       tags:
         - Sites
       summary: All decision documents for a site
-      operationId: getOmradesBeslutsdokument
+      operationId: omrade_id_beslutsdokument
       parameters:
         - name: status
           in: path
@@ -407,7 +407,7 @@ paths:
       description: Note that the response is in
         [WKT](https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry)
         format, encoded as [SWEREF99 TM / EPSG:3006](https://epsg.io/3006).
-      operationId: extentAsWkt
+      operationId: omrade_id_extentAsWkt
       parameters:
         - name: status
           in: path
@@ -438,7 +438,7 @@ paths:
       tags:
         - Sites
       summary: All rules for a site
-      operationId: getOmradesForeskriftsomraden
+      operationId: omrade_id_foreskriftsomraden
       parameters:
         - name: status
           in: path
@@ -471,7 +471,7 @@ paths:
       tags:
         - Sites
       summary: All environmental objectives for a site
-      operationId: getOmradesMiljomal
+      operationId: omrade_id_miljomal
       parameters:
         - name: status
           in: path
@@ -504,7 +504,7 @@ paths:
       tags:
         - Sites
       summary: All NMD classes for a site
-      operationId: getOmradesNaturtypNmd
+      operationId: omrade_id_nmdklasser
       parameters:
         - name: status
           in: path
@@ -537,7 +537,7 @@ paths:
       tags:
         - Sites
       summary: All purposes for a site
-      operationId: getOmradesSyften
+      operationId: omrade_id_syften
       parameters:
         - name: status
           in: path
@@ -570,7 +570,7 @@ paths:
       tags:
         - Sites
       summary: Geographical representation of a site
-      operationId: wkt
+      operationId: omrade_id_wkt
       parameters:
         - name: status
           in: path
@@ -601,7 +601,7 @@ paths:
         - Sites
       summary: A list of all decision status codes
       description: To be used in path parameter *{status}* and query parameter *beslutsstatus*
-      operationId: getBeslutsstatusList
+      operationId: omrade_beslutsstatusar
       responses:
         "200":
           description: Successful operation
@@ -619,7 +619,7 @@ paths:
         - Sites
       summary: A list of all types of authorites
       description: To be used in query parameter *beslutsmyndighet*
-      operationId: getBeslutsmyndighetList
+      operationId: omrade_beslutsmyndigheter
       responses:
         "200":
           description: Successful operation
@@ -637,7 +637,7 @@ paths:
         - Sites
       summary: A list of all protection types
       description: To be used in query parameter *skyddstypnamn* or *skyddstypkod* fields
-      operationId: getSkyddstyperList
+      operationId: omrade_skyddstyper
       responses:
         "200":
           description: Successful operation
@@ -655,7 +655,7 @@ paths:
         - Documents
       summary: Returns a specific decision document for a site
       description: Use /omrade/{nvrId}/{status}/beslutsdokument for a complete list of documents for a site
-      operationId: get
+      operationId: beslutsdokument_nvrid
       parameters:
         - name: status
           in: path
@@ -693,7 +693,7 @@ paths:
         - Rules
       summary:  Returns a specific rule for a site
       description: Use /omrade/{nvrId}/{status}/foreskriftsomraden for a complete list of rules for a site
-      operationId: get2
+      operationId: foreskriftsomrade_nvrid
       parameters:
         - name: status
           in: path
@@ -732,7 +732,7 @@ paths:
         - Rules
       summary: A list of all rule types
       description: To be used in query parameter *foreskriftstyp*
-      operationId: getForeskrifterList
+      operationId: foreskriftstyper
       responses:
         "200":
           description: Successful operation
@@ -750,7 +750,7 @@ paths:
         - Rules
       summary: A list of all rule subtypes
       description: To be used in query parameter *foreskriftssubtyp*
-      operationId: getForeskriftsSubtyperList
+      operationId: foreskriftssubtyper
       responses:
         "200":
           description: Successful operation
@@ -773,7 +773,7 @@ paths:
         - Environmental objectives
       summary: A list of all environmental objectives
       description: To be used in query parameter *miljomal*
-      operationId: getMiljomalList
+      operationId: miljomal
       responses:
         "200":
           description: Successful operation
@@ -791,7 +791,7 @@ paths:
         - Environmental objectives
       summary: A single environmental objective for a site
       description: Use /omrade/{nvrId}/{status}/miljomal for a complete list of objectives for a site
-      operationId: get3
+      operationId: miljomal_nvrid
       parameters:
         - name: status
           in: path
@@ -829,7 +829,7 @@ paths:
         - NMD classes
       summary: A list of all NMD classes
       description: To be used in query parameter *nmdklass*
-      operationId: getNmdKlasser
+      operationId: nmdklass
       responses:
         "200":
           description: Successful operation
@@ -847,7 +847,7 @@ paths:
         - NMD classes
       summary: A list of all NMD classes on level 1
       description: To be used in query parameter *nmdklassniva1*
-      operationId: getNmdKlasserNiva1List
+      operationId: nmdklass_niva1
       responses:
         "200":
           description: Successful operation
@@ -865,7 +865,7 @@ paths:
         - NMD classes
       summary: A list of all NMD classes on level 2
       description: To be used in query parameter *nmdklassniva2*
-      operationId: getNmdKlasserNiva2List
+      operationId: nmdklass_niva2
       responses:
         "200":
           description: Successful operation
@@ -883,7 +883,7 @@ paths:
         - NMD classes
       summary: A list of all NMD classes on level 3
       description: To be used in query parameter *nmdklassniva1*
-      operationId: getNmdKlasserNiva3List
+      operationId: nmdklass_niva3
       responses:
         "200":
           description: Successful operation
@@ -900,7 +900,7 @@ paths:
       tags:
         - NMD classes
       summary: A specific NMD class for a site
-      operationId: getOmradesNmdKlasser
+      operationId: nmdklass_nvrid
       parameters:
         - name: status
           in: path
@@ -937,7 +937,7 @@ paths:
       tags:
         - Purposes
       description: Returnerar ett syfte för ett specifikt område
-      operationId: get5
+      operationId: syfte_nvrid
       parameters:
         - name: nvrId
           in: path
@@ -961,7 +961,6 @@ paths:
             type: string
             example: 2.21.47.55
           required: true
-
       responses:
         "200":
           description: Successful operation
@@ -976,7 +975,7 @@ paths:
         - Purposes
       summary: A list of purposes
       description: To be used in query paramter *syfte*
-      operationId: getSyftenList
+      operationId: syften
       responses:
         "200":
           description: Successful operation
