@@ -11,7 +11,7 @@ paths:
       tags:
         - Trails
       summary: Search trails in protected areas
-      operationId: searchDevices
+      operationId: searchTrails
       description: |
         By passing in the appropriate options, you can search for
         available trails in the system
