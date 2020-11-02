@@ -89,6 +89,24 @@ paths:
         default:
           $ref: "#/components/responses/GeneralError"
 
+  /nmdklass:
+    get:
+      tags:
+        - Supporting data
+      summary: All NMD classes within the N2000 sites
+      operationId: nmdklass
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/GeneralType"
+        default:
+          $ref: "#/components/responses/GeneralError"
+
   "/dokument/{kod}/{id}":
     get:
       tags:
@@ -178,6 +196,16 @@ paths:
         - name: naturtypnamn
           in: query
           description: Filter by nature type name (i.e.  __value__ from _/naturtyper_)
+          schema:
+            type: string
+        - name: nmdklasskod
+          in: query
+          description: Filter by NMD class __key__ (see _/nmdklass_)
+          schema:
+            type: string
+        - name: nmdklassnamn
+          in: query
+          description: Filter by NMD class name (i.e.  __value__ from _/nmdklass_)
           schema:
             type: string
         - name: omradestypkod
@@ -473,6 +501,31 @@ paths:
         default:
           $ref: "#/components/responses/GeneralError"
 
+  "/omrade/{id}/nmdklasser":
+    get:
+      tags:
+        - N2000 sites
+      summary: All NMD classes within a N2000 site
+      operationId: omrade_id_nmdklasser
+      parameters:
+        - name: id
+          in: path
+          description: Site code ("kod"), e.g. SE0820211
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/NMDClass"
+        default:
+          $ref: "#/components/responses/GeneralError"
+
 components:
   schemas:
     NatureType:
@@ -494,6 +547,26 @@ components:
               type: number
               format: float
               description: Extent in hectares
+
+    NMDClass:
+      properties:
+        nmdKlass:
+          type: object
+          properties:
+            kod:
+              type: integer
+              format: int32
+              description: NMD class identifier
+            namn:
+              type: string
+              description: Name of NMD class
+            omradesKod:
+              type: string
+              description: Site code (identifier)
+            areaHa:
+              type: number
+              format: float
+              description: Area in hectares
 
     SpeciesInSite:
       properties:
