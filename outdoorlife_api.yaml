@@ -1,17 +1,16 @@
 openapi: 3.0.1
-servers: [
-  url: https://nvpub.vic-metria.nu/arcgis/rest/services 
-  ]
+servers:
+  - url: https://nvpub.vic-metria.nu/arcgis/rest/services 
 info:
-  title: ArcGIS Server REST API for Outdoor Life
-  description: Subset of ArcGIS Server REST API for trails and devices for outdoor life in protected sites.
+  title: ArcGIS REST API for Outdoor Life
+  description: Subset of ArcGIS REST API for trails and devices for outdoor life in protected sites.
   version: "1.0.0"
 paths:
   /Leder_friluftsliv_WFS/MapServer/0/query:
     get:
       tags:
         - Trails
-      summary: searches trails
+      summary: Search trails in protected areas
       operationId: searchDevices
       description: |
         By passing in the appropriate options, you can search for
@@ -28,20 +27,20 @@ paths:
           example: geojson
         - in: query
           name: where
-          description: SQL-92 where clause for filtering the response on attributes, if no filtering is needed (e.g. if using the spatial filtering) this can be set to "1=1" ¯\\\_(ツ)\_/¯
+          description: SQL-92 where clause for filtering the response on attributes, if no filtering is needed (e.g. if using the spatial filtering) this can be set to "1=1".
           required: true
           example: SKYDDATOMRADE='Store Mosse'
           schema:
             type: string
         - in: query
           name: outFields
-          description: The list of fields to be included in the returned result set. Wildcard "*"" gives all.
+          description: The list of fields to be included in the returned result set. Wildcard * can be used.
           schema:
             type: string
           example: '*'
         - in: query
           name: geometry
-          description: A geometry to apply as the spatial filter, to be used with geometryType and spatialRel
+          description: A geometry to apply as the spatial filter, to be used with *geometryType* and *spatialRel*
           schema:
             type: string
         - in: query
@@ -74,7 +73,7 @@ paths:
             
       responses:
         '200':
-          description: search results matching criteria
+          description: Search results matching criteria
           content:
             application/json:
               schema:
@@ -82,16 +81,16 @@ paths:
                 items:
                   $ref: '#/components/schemas/TrailFullSchema'
         '400':
-          description: bad input parameter
+          description: Bad input parameter
         '500':
-          description: internal server error
+          description: Internal server error
 
 
   /Anordningar_friluftsliv_WFS/MapServer/0/query:
     get:
       tags:
         - Devices
-      summary: searches devices
+      summary: Searches devices in protected areas
       operationId: searchDevices
       description: |
         By passing in the appropriate options, you can search for
@@ -108,20 +107,20 @@ paths:
           example: geojson
         - in: query
           name: where
-          description: SQL-92 where clause for filtering the response on attributes, if no filtering is needed (e.g. if using the spatial filtering) this can be set to "1=1" ¯\\\_(ツ)\_/¯
+          description: SQL-92 where clause for filtering the response on attributes, if no filtering is needed (e.g. if using the spatial filtering) this can be set to "1=1".
           required: true
           example: SKYDDATOMRADE='Store Mosse'
           schema:
             type: string
         - in: query
           name: outFields
-          description: The list of fields to be included in the returned result set. Wildcard "*"" gives all.
+          description: The list of fields to be included in the returned result set. Wildcard * can be used.
           schema:
             type: string
           example: '*'
         - in: query
           name: geometry
-          description: A geometry to apply as the spatial filter, to be used with geometryType and spatialRel
+          description: A geometry to apply as the spatial filter, to be used with *geometryType* and *spatialRel*
           schema:
             type: string
         - in: query
@@ -154,7 +153,7 @@ paths:
 
       responses:
         '200':
-          description: search results matching criteria
+          description: Search results matching criteria
           content:
             application/json:
               schema:
@@ -162,12 +161,11 @@ paths:
                 items:
                   $ref: '#/components/schemas/DeviceFullSchema'
         '400':
-          description: bad input parameter
+          description: Bad input parameter
         '500':
-          description: internal server error
+          description: Internal server error
 components:
   schemas:
-
 
     TrailProperties:
       type: object
@@ -175,25 +173,34 @@ components:
       properties:
         OBJECTID:
           type: integer
+          description: ID of the object
         LEDNAMN:
           type: string
+          description: Name of the trail
         LED_ID:
           type: string
+          description: Internal ID of the trail
         LEDTYP:
           type: string
+          description: Type of trail
         LEDKATEGORI:
           type: string
+          description: Category of trail
         LEDMARKERING:
           type: string
+          description: Markers used for this trail
         SKYDDATOMRADE:
           type: string
+          description: Name of protected area(s) that the trail passes through
         STATLIGLED:
           type: string
+          description: (? TODO FIX THIS) 
         BESKRIVNING:
           type: string
+          description: Description of trail
         SHAPE.LEN:
           type: number
-
+          description: "Length of trail (TODO: UNIT)"
 
     DeviceProperties:
       type: object
