@@ -666,10 +666,10 @@ components:
               description: Size of site in hectare
             kommunerAsText:
               type: string
-              description: Municipality name
+              description: Municipality name(s)
             lanAsText:
               type: string
-              description: Region name
+              description: Region name(s)
             omradesTyp:
               $ref: "#/components/schemas/KeyValueType"
             atom.link:
@@ -700,10 +700,10 @@ components:
               description: Textual description of the site's quality values
             kommunerAsText:
               type: string
-              description: Municipality name
+              description: Municipality name(s)
             lanAsText:
               type: string
-              description: Region name
+              description: Region name(s)
             omradesTyp:
               $ref: "#/components/schemas/KeyValueType"
             sacDatum:
@@ -755,10 +755,10 @@ components:
               description: Size of site in hectare
             kommunerAsText:
               type: string
-              description: Municipality name
+              description: Municipality name(s)
             lanAsText:
               type: string
-              description: Region name
+              description: Region name(s)
             omradesTyp:
               $ref: "#/components/schemas/KeyValueType"
 

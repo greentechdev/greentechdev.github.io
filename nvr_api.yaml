@@ -35,7 +35,7 @@ paths:
             type: string
         - name: beslutsmyndighet
           in: query
-          description: Decision authority (see /omrade/beslutsmyndigheter)
+          description: TBD Decision authority (see /omrade/beslutsmyndigheter)
           schema:
             type: string
         - name: status
@@ -994,86 +994,68 @@ components:
       title: Decision document
       properties:
         nvrId:
-          readOnly: false
           description: NVR-id of site
           type: string
-          example: 2001362
         beslutsId:
-          readOnly: false
           description: Id of decision
           type: string
-          example: 100043
         beslutsstatus:
-          readOnly: false
           description: Decision status
           type: string
-          enum: [Beslutad, Överklagad, Gällande]
-          example: Gällande
         beslutstyp:
-          readOnly: false
-          description: ""
+          description: Decision type
           type: string
         beslutsmyndighet:
-          readOnly: false
-          description: ""
+          description: TBD Decision authority
           type: string
         diarienummer:
-          readOnly: false
-          description: ""
+          description: TBD Reference number
           type: string
         beslutsdatum:
-          readOnly: false
-          description: ""
+          description: Decision date
           type: integer
           format: int32
         gallandedatum:
-          readOnly: false
-          description: ""
+          description: TBD Date of current decision
           type: integer
           format: int32
         id:
-          readOnly: false
-          description: ""
+          description: Id of document
           type: string
         namn:
-          readOnly: false
-          description: ""
+          description: Name of document
           type: string
         typ:
-          readOnly: false
-          description: ""
+          description: Type of document
           type: string
         mimeType:
-          readOnly: false
-          description: ""
+          description: MIME type of document
           type: string
         fileUrl:
-          readOnly: false
-          description: ""
+          description: URL to document file
           type: string
         atomLink:
-          readOnly: false
           description: ""
           type: array
           items:
             type: object
       example:
-        nvrId: ...
-        beslutsId: ...
-        beslutsstatus: ...
-        beslutstyp: ...
-        beslutsmyndighet: ...
-        diarienummer: ...
-        beslutsdatum: 12345
-        gallandedatum: 12345
-        id: ...
-        namn: ...
-        typ: ...
-        mimeType: ...
-        fileUrl: ...
+        nvrId: 2001362
+        beslutsId: 100043
+        beslutsstatus: "Gällande"
+        beslutstyp: "Beslut om bildande av Nationalpark"
+        beslutsmyndighet: "Riksdag/Regering"
+        diarienummer: "JODEP 2516/79, 784/82 SNV 203-3207-81"
+        beslutsdatum: "1982-05-06T00:00:00+02:00"
+        gallandedatum: "1982-05-06T00:00:00+02:00"
+        id: 151124
+        namn: "Store mosse Regeringens beslut.pdf"
+        typ: "Beslut"
+        mimeType: "application/pdf"
+        fileUrl: "https://nvpub.vic-metria.nu/handlingar/rest/dokument/151124"
         atomLink:
           - {"@rel": "self"}
-          - {}
+          - {"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/beslutsdokument/2001362/G%C3%A4llande/151124"}
       description: ""
 
     Foreskriftsomrade:
@@ -1081,48 +1063,37 @@ components:
       title: Rule
       properties:
         objectId:
-          readOnly: false
-          description: Id of the rule
+          description: Id of rule
           type: integer
           format: int64
         nvrId:
-          readOnly: false
-          description: NVR-id of the site
+          description: NVR-id of site
           type: string
         beslutsstatus:
-          readOnly: false
           description: Decision status
           type: string
         foreskriftstyp:
-          readOnly: false
           description: Type of rule
           type: string
         foreskriftssubtyp:
-          readOnly: false
           description: Subtype of rule
           type: string
         franDatum:
-          readOnly: false
           description: Date that the rule is in effect from
           type: string
         tillDatum:
-          readOnly: false
           description: Date that the rule is in effect to
           type: string
         areaHa:
-          readOnly: false
           description: Size of the area affected by the rule
           type: number
         foreskriftstypKod:
-          readOnly: false
           description: Code for the rule
           type: string
         foreskriftssubtypKod:
-          readOnly: false
           description: Code for the rule subtype
           type: string
         atomLink:
-          readOnly: false
           description: ""
           type: array
           items:
@@ -1140,7 +1111,7 @@ components:
         foreskriftssubtypKod: 2
         atomLink:
           - {"@rel": "self"}
-          - {"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/foreskriftsomrade/2001362/Gällande/2493200"}
+          - {"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/foreskriftsomrade/2001362/G%C3%A4llande/2493200"}
       description: Area affected by a rule
 
     Miljomal:
@@ -1148,30 +1119,26 @@ components:
       title: Environmental objective
       properties:
         nvrId:
-          readOnly: false
-          description: ""
+          description: NVR-id of site
           type: string
         beslutsstatus:
-          readOnly: false
-          description: ""
+          description: Decision status
           type: string
         namn:
-          readOnly: false
-          description: ""
+          description: Name of environmental objective
           type: string
         atomLink:
-          readOnly: false
           description: ""
           type: array
           items:
             type: object
       example:
-        nvrId: ...
-        beslutsstatus: ...
-        namn: ...
+        nvrId: 2001362
+        beslutsstatus: Gällande
+        namn: "12. Levande skogar"
         atomLink:
           - {"@rel": "self"}
-          - {}
+          - {"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/miljomal/2001362/G%C3%A4llande/12.%20Levande%20skogar"}
       description: ""
 
     NmdKlass:
@@ -1179,50 +1146,125 @@ components:
       title: NMD class
       properties:
         nvrId:
-          readOnly: false
-          description: ""
+          description: NVR-id of site
           type: string
         beslutsstatus:
-          readOnly: false
-          description: ""
+          description: Decision status
           type: string
         kod:
-          readOnly: false
-          description: ""
-          type: string
-        foreskriftstyp:
-          readOnly: false
-          description: ""
+          description: NMD class code
           type: string
         namn:
-          readOnly: false
-          description: ""
+          description: NMD class name
           type: string
         areaHa:
-          readOnly: false
-          description: ""
+          description: Area in hectares
           type: number
+        foreskriftstyp:
+          description: Rule type
+          type: string
         foreskriftstypNamn:
-          readOnly: false
-          description: ""
+          description: Rule type name
           type: string
         atomLink:
-          readOnly: false
           description: ""
           type: array
           items:
             type: object
       example:
-        nvrId: ...
-        beslutsstatus: ...
-        kod: ...
-        foreskriftstyp: ...
-        namn: ...
+        nvrId: 2001362
+        beslutsstatus: Gällande
+        kod: 111
+        namn: "Tallskog utanför våtmark"
         areaHa: 12345
-        foreskriftstypNamn: ...
+        foreskriftstyp: 0
+        foreskriftstypNamn: "Ej foreskrift"
         atomLink:
           - {"@rel": "self"}
-          - {}
+          - {"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/nmdklass/2001362/G%C3%A4llande/111"}
+      description: ""
+
+    OmradeNoLinks:
+      type: object
+      title: Site (no links)
+      properties:
+        id:
+          description: NVR-id of site
+          type: string
+        beslutsstatus:
+          description: Decision status
+          type: string
+        namn:
+          description: Name of site
+          type: string
+        skyddstyp:
+          description: Protection type
+          type: string
+        lanAsText:
+          description: Region name(s)
+          type: string
+        kommunerAsText:
+          description: Municipality name(s)
+          type: string
+        beslutstyp:
+          description: Type of decision
+          type: string
+        beslutsdatum:
+          description: Date of decision
+          type: integer
+          format: int32
+        ursprBeslutsdatum:
+          description: TBD Original decision date
+          type: integer
+          format: int32
+        gallandedatum:
+          description: TBD Current decision date
+          type: integer
+          format: int32
+        iucnKategori:
+          description: IUCN category
+          type: string
+        forvaltare:
+          description: TBD Manager
+          type: string
+        areaHa:
+          description: Area in hecatres
+          type: number
+        landareaHa:
+          description: Land area in hectares
+          type: number
+        vattenareaHa:
+          description: Water area in hectares
+          type: number
+        skogAreaHa:
+          description: Forest area in hectares
+          type: number
+        beslutsmyndighet:
+          description: TBD Decision autohrity
+          type: string
+        atomLink:
+          description: ""
+          type: array
+          items:
+            type: object
+      example:
+        id: 2001362
+        beslutsstatus: Gällande
+        namn: "Store Mosse"
+        skyddstyp: "Nationalpark"
+        lanAsText: "Jönköpings Län"
+        kommunerAsText: "Gnosjö, Vaggeryd, Värnamo"
+        beslutstyp: "Beslut om bildande av Nationalpark"
+        beslutsdatum: "1982-05-06T00:00:00+02:00"
+        ursprBeslutsdatum: "1982-05-06T00:00:00+02:00"
+        gallandedatum: "1982-05-06T00:00:00+02:00"
+        iucnKategori: "II, Nationalpark (National Park)"
+        forvaltare: "Länsstyrelsen i Jönköpings län"
+        areaHa: 12345
+        landareaHa: 7409.47
+        vattenareaHa: 264.64
+        skogAreaHa: 652.15
+        beslutsmyndighet: "Riksdag/Regering"
       description: ""
 
     Omrade:
@@ -1230,103 +1272,108 @@ components:
       title: Site
       properties:
         id:
-          readOnly: false
-          description: ""
+          description: NVR-id of site
           type: string
         beslutsstatus:
-          readOnly: false
-          description: ""
+          description: Decision status
           type: string
         namn:
-          readOnly: false
-          description: ""
+          description: Name of site
           type: string
         skyddstyp:
-          readOnly: false
-          description: ""
+          description: Protection type
           type: string
         lanAsText:
-          readOnly: false
-          description: ""
+          description: Region name(s)
           type: string
         kommunerAsText:
-          readOnly: false
-          description: ""
+          description: Municipality name(s)
           type: string
         beslutstyp:
-          readOnly: false
-          description: ""
+          description: Type of decision
           type: string
         beslutsdatum:
-          readOnly: false
-          description: ""
+          description: Date of decision
           type: integer
           format: int32
         ursprBeslutsdatum:
-          readOnly: false
-          description: ""
+          description: TBD Original decision date
           type: integer
           format: int32
         gallandedatum:
-          readOnly: false
-          description: ""
+          description: TBD Current decision date
           type: integer
           format: int32
         iucnKategori:
-          readOnly: false
-          description: ""
+          description: IUCN category
           type: string
         forvaltare:
-          readOnly: false
-          description: ""
+          description: TBD Manager
           type: string
         areaHa:
-          readOnly: false
-          description: ""
+          description: Area in hecatres
           type: number
         landareaHa:
-          readOnly: false
-          description: ""
+          description: Land area in hectares
           type: number
         vattenareaHa:
-          readOnly: false
-          description: ""
+          description: Water area in hectares
           type: number
         skogAreaHa:
-          readOnly: false
-          description: ""
+          description: Forest area in hectares
           type: number
         beslutsmyndighet:
-          readOnly: false
-          description: ""
+          description: TBD Decision autohrity
           type: string
         atomLink:
-          readOnly: false
           description: ""
           type: array
           items:
             type: object
       example:
-        id: ...
-        beslutsstatus: ...
-        namn: ...
-        skyddstyp: ...
-        lanAsText: ...
-        kommunerAsText: ...
-        beslutstyp: ...
-        beslutsdatum: 12345
-        ursprBeslutsdatum: 12345
-        gallandedatum: 12345
-        iucnKategori: ...
-        forvaltare: ...
+        id: 2001362
+        beslutsstatus: Gällande
+        namn: "Store Mosse"
+        skyddstyp: "Nationalpark"
+        lanAsText: "Jönköpings Län"
+        kommunerAsText: "Gnosjö, Vaggeryd, Värnamo"
+        beslutstyp: "Beslut om bildande av Nationalpark"
+        beslutsdatum: "1982-05-06T00:00:00+02:00"
+        ursprBeslutsdatum: "1982-05-06T00:00:00+02:00"
+        gallandedatum: "1982-05-06T00:00:00+02:00"
+        iucnKategori: "II, Nationalpark (National Park)"
+        forvaltare: "Länsstyrelsen i Jönköpings län"
         areaHa: 12345
-        landareaHa: 12345
-        vattenareaHa: 12345
-        skogAreaHa: 12345
-        beslutsmyndighet: ...
-        atomLink:
-          - {"@rel": "self"}
-          - {}
+        landareaHa: 7409.47
+        vattenareaHa: 264.64
+        skogAreaHa: 652.15
+        beslutsmyndighet: "Riksdag/Regering"
+        atomLink: [
+{
+"@rel": "nmdklasser",
+"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/omrade/2001362/G%C3%A4llande/nmdklasser"
+},
+{
+"@rel": "miljomal",
+"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/omrade/2001362/G%C3%A4llande/miljomal"
+},
+{
+"@rel": "beslutsdokument",
+"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/omrade/2001362/G%C3%A4llande/beslutsdokument"
+},
+{
+"@rel": "syften",
+"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/omrade/2001362/G%C3%A4llande/syften"
+},
+{
+"@rel": "self",
+"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/omrade/2001362/G%C3%A4llande"
+},
+{
+"@rel": "foreskriftsomraden",
+"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/omrade/2001362/G%C3%A4llande/foreskriftsomraden"
+}
+]
       description: ""
 
     Syfte:
@@ -1334,40 +1381,34 @@ components:
       title: Purpose
       properties:
         nvrId:
-          readOnly: false
-          description: ""
+          description: NVR-id of site
           type: string
         beslutsstatus:
-          readOnly: false
-          description: ""
+          description: Decision status
           type: string
         id:
-          readOnly: false
-          description: ""
+          description: Id of purpose
           type: string
         namn:
-          readOnly: false
-          description: ""
+          description: Name of purpose
           type: string
         beskrivning:
-          readOnly: false
-          description: ""
+          description: Description of purpose
           type: string
         atomLink:
-          readOnly: false
           description: ""
           type: array
           items:
             type: object
       example:
-        nvrId: ...
-        beslutsstatus: ...
-        id: ...
-        namn: ...
-        beskrivning: ...
+        nvrId: 2001362
+        beslutsstatus: Gällande
+        id: "2.19.34"
+        namn: "Vårda och bevara värdefulla naturmiljöer"
+        beskrivning: "Liminiska miljöer, Sjö"
         atomLink:
           - {"@rel": "self"}
-          - {}
+          - {"@href": "https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest/syfte/2001362/G%C3%A4llande/2.19.34"}
       description: ""
 
     Typ:
@@ -1375,11 +1416,9 @@ components:
       title: Type
       properties:
         key:
-          readOnly: false
           description: ""
           type: string
         value:
-          readOnly: false
           description: ""
           type: string
       example:

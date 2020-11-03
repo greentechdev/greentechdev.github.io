@@ -173,7 +173,7 @@ components:
       properties:
         OBJECTID:
           type: integer
-          description: ID of the object
+          description: ID of the object in the database
         LEDNAMN:
           type: string
           description: Name of the trail
@@ -182,25 +182,25 @@ components:
           description: Internal ID of the trail
         LEDTYP:
           type: string
-          description: Type of trail
+          description: Type of trail (see table 4 in data definition document)
         LEDKATEGORI:
           type: string
-          description: Category of trail
+          description: Category of trail (see table 4 in data definition document)
         LEDMARKERING:
           type: string
-          description: Markers used for this trail
+          description: Description of markers used for this trail
         SKYDDATOMRADE:
           type: string
-          description: Name of protected area(s) that the trail passes through
+          description: Name of protected site(s) that the trail passes through
         STATLIGLED:
           type: string
-          description: (? TODO FIX THIS) 
+          description: TBD Name of state owned trail that this trail belongs to
         BESKRIVNING:
           type: string
           description: Description of trail
         SHAPE.LEN:
           type: number
-          description: "Length of trail (TODO: UNIT)"
+          description: "Length of trail (m)"
 
     DeviceProperties:
       type: object
@@ -208,25 +208,34 @@ components:
       properties:
         OBJECTID:
           type: integer
+          description: ID of the object in the database
         ANORDNINGSNAMN:
           type: string
+          description: Name of the device
         ANORDNING_ID:
           type: string
+          description: Internal ID of the device
         TYP:
           type: string
+          description: Type of device (see table 5 in data definition document)
         UNDERTYP:
           type: string
+          description: Subtype of device (see table 5 in data definition document)
         SKYDDATOMRADE:
           type: string
+          description: Name of protected site(s) that the devices belongs to
         STATLIGLED:
           type: string
+          description: TBD Name of state owned trail that this device belong to
         BESKRIVNING:
           type: string
+          description: Description of device
         NP:
           type: integer
+          description: 1 if in National Park
         SKYDDSTYP_KOD:
           type: string
-
+          description: Protection type
 
     TrailFullSchema:
       description: Data model for trails service, assuming * in "out fields" param and geojson format
