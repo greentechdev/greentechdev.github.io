@@ -17,11 +17,11 @@
       <pubDate>Mon, 12 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/data/nvr/</guid>
-      <description>NVR Data from the official list of protected nature sites in Sweden (Naturvårdsregistret, NVR) is exposed through a number of distribution channels. There are
-http://www.swedishepa.se/Enjoying-nature/Protected-areas/
-TODO: more text/links here
+      <description>NVR Data from the official list of protected nature areas (sites) in Sweden (Naturvårdsregistret, NVR) is exposed through a number of distribution channels.
+Read more about protected nature areas:
+ http://www.swedishepa.se/Enjoying-nature/Protected-areas/ http://www.naturvardsverket.se/Var-natur/Skyddad-natur/ (Swedish) http://www.naturvardsverket.se/Sa-mar-miljon/Kartor/Kartverktyget-Skyddad-natur/ (Swedish)  TBD more text/links here
 License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
+Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar.</description>
     </item>
     
     <item>
