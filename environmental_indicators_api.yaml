@@ -20,6 +20,7 @@ paths:
       tags:
         - Indicators
       operationId: indicators
+      summary: Full list of indicators
       description: The full list of indicators (limited datasets content). Use this to get
         the the full presentations (using the parameter 'includePresentations').
       parameters:
@@ -53,6 +54,7 @@ paths:
       tags:
         - Indicators
       operationId: indicator
+      summary: A single indicator
       description: A single indicator (excluding presentations). Use this to get the full
         datasets content.
       parameters:
