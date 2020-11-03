@@ -1410,6 +1410,7 @@ components:
 
     Beslutsstatus:
       type: string
+      title: Decision status
       enum: [Beslutad, Överklagad, Gällande]
       description: >
         Status of decision:
