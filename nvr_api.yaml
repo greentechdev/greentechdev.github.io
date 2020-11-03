@@ -42,9 +42,7 @@ paths:
           in: query
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
         - name: foreskriftssubtyp
           in: query
           description: Rule subtype (see /foreskriftssubtyper)
@@ -188,9 +186,7 @@ paths:
           in: query
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
         - name: foreskriftssubtyp
           in: query
           description: Rule subtype (see /foreskriftssubtyper)
@@ -347,9 +343,7 @@ paths:
           in: path
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
         - name: id
           in: path
@@ -377,9 +371,7 @@ paths:
           in: path
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
         - name: id
           in: path
@@ -413,9 +405,7 @@ paths:
           in: path
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
         - name: id
           in: path
@@ -444,9 +434,7 @@ paths:
           in: path
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
         - name: id
           in: path
@@ -477,9 +465,7 @@ paths:
           in: path
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
         - name: id
           in: path
@@ -510,9 +496,7 @@ paths:
           in: path
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
         - name: id
           in: path
@@ -543,9 +527,7 @@ paths:
           in: path
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
         - name: id
           in: path
@@ -576,9 +558,7 @@ paths:
           in: path
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
         - name: id
           in: path
@@ -600,7 +580,12 @@ paths:
       tags:
         - Sites
       summary: A list of all decision status codes
-      description: To be used in path parameter *{status}* and query parameter *beslutsstatus*
+      description: >
+        To be used in path parameter *{status}* and query parameter *beslutsstatus*
+
+         * `Gällande` = Current
+         * `Beslutad` = Decided
+         * `Överklagad` = Appealed
       operationId: omrade_beslutsstatusar
       responses:
         "200":
@@ -611,7 +596,7 @@ paths:
                 description: List(Typ)
                 type: array
                 items:
-                  $ref: "#/components/schemas/Typ"
+                  $ref: "#/components/schemas/Beslutsstatus"
 
   /omrade/beslutsmyndigheter:
     get:
@@ -661,10 +646,8 @@ paths:
           in: path
           description: Decision status
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
-          example: Gällande
         - name: id
           in: path
           description: Id of the document
@@ -699,10 +682,8 @@ paths:
           in: path
           description: Decision status for this site
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
-          example: Gällande
         - name: nvrId
           in: path
           description: NVR-id for a site
@@ -797,10 +778,8 @@ paths:
           in: path
           description: Decision status
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
-          example: Gällande
         - name: namn
           in: path
           description: Name of this environmental objective
@@ -906,10 +885,8 @@ paths:
           in: path
           description: Decision status
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
-          example: Gällande
         - name: nmdKlassKod
           in: path
           description: NMD class code
@@ -950,9 +927,7 @@ paths:
           in: path
           description: Decision status (see /omrade/beslutsstatusar)
           schema:
-            type: string
-            enum: [Beslutad, Överklagad, Gällande]
-            example: Gällande
+            $ref: "#/components/schemas/Beslutsstatus"
           required: true
         - name: id
           in: path
@@ -1422,8 +1397,8 @@ components:
           description: ""
           type: string
       example:
-        key: NP
-        value: Nationalpark
+        key: key
+        value: value
       description: Used by value lists
 
     WktString:
@@ -1432,3 +1407,13 @@ components:
       example: POLYGON  (( 494297.08800000 6997007.55500000, 581252.96300000
         6997007.55500000, 581252.96300000 7100945.65200000, 494297.08800000
         7100945.65200000, 494297.08800000 6997007.55500000))
+
+    Beslutsstatus:
+      type: string
+      enum: [Beslutad, Överklagad, Gällande]
+      description: >
+        Status of decision:
+         * `Gällande` = Current
+         * `Beslutad` = Decided
+         * `Överklagad` = Appealed
+      example: Gällande
