@@ -698,7 +698,7 @@ paths:
             type: integer
             format: int64
           required: true
-          example: 2493200
+          example: 2496389
       responses:
         "200":
           description: Successful operation
@@ -1215,7 +1215,7 @@ components:
           description: Forest area in hectares
           type: number
         beslutsmyndighet:
-          description: TBD Decision autohrity
+          description: TBD Decision authority
           type: string
         atomLink:
           description: ""
@@ -1298,7 +1298,7 @@ components:
           description: Forest area in hectares
           type: number
         beslutsmyndighet:
-          description: TBD Decision autohrity
+          description: TBD Decision authority
           type: string
         atomLink:
           description: ""
