@@ -179,7 +179,7 @@ paths:
             type: string
         - name: beslutsmyndighet
           in: query
-          description: Decision authority (see /omrade/beslutsmyndigheter)
+          description: TBD Decision authority (see /omrade/beslutsmyndigheter)
           schema:
             type: string
         - name: status
