@@ -85,7 +85,6 @@ paths:
         '500':
           description: Internal server error
 
-
   /Anordningar_friluftsliv_WFS/MapServer/0/query:
     get:
       tags:
@@ -164,6 +163,7 @@ paths:
           description: Bad input parameter
         '500':
           description: Internal server error
+
 components:
   schemas:
 

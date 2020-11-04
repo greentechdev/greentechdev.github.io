@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  description: Translation IN PROGRESS
+  title: NVR REST API
   version: 2.1.0-0
-  title: REST API for Naturvårdsregistret
+  description: REST API for Naturvårdsregistret.
 servers:
   - url: https://nvpub.vic-metria.nu/naturvardsregistret/v2/rest
 
