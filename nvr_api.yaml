@@ -583,8 +583,8 @@ paths:
       description: >
         To be used in path parameter *{status}* and query parameter *beslutsstatus*
 
-         * `Gällande` = Current
-         * `Beslutad` = Decided
+         * `Gällande` = Current TBD
+         * `Beslutad` = Decided TBD
          * `Överklagad` = Appealed
       operationId: omrade_beslutsstatusar
       responses:
