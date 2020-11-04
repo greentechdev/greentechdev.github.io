@@ -23,17 +23,5 @@ Data quality No information.
 License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.  Our APIs and data are provided &#34;as is&#34; without guarantees concerning potential errors in the data, availability and performance of the API and similar.</description>
     </item>
     
-    <item>
-      <title>Environmental monitoring stations</title>
-      <link>/data/environmental-monitoring-stations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/data/environmental-monitoring-stations/</guid>
-      <description>Environmental monitoring stations Data about the national environmental monitoring stations&amp;hellip;
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.
-Data model &amp;hellip;</description>
-    </item>
-    
   </channel>
 </rss>
