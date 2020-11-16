@@ -35,7 +35,7 @@ paths:
             type: string
         - name: beslutsmyndighet
           in: query
-          description: TBD Decision authority (see /omrade/beslutsmyndigheter)
+          description: Authority (see /omrade/beslutsmyndigheter)
           schema:
             type: string
         - name: status
@@ -55,17 +55,17 @@ paths:
             type: string
         - name: forstagangsbeslut
           in: query
-          description: TBD Filter only first decision
+          description: First time decision
           schema:
             type: boolean
         - name: gallandedatum_from
           in: query
-          description: TBD Date of current decision (from) (yyyy-MM-dd)
+          description: Current decision date (from) (yyyy-MM-dd)
           schema:
             type: string
         - name: gallandedatum_tom
           in: query
-          description: TBD Date of current decision (to) (yyyy-MM-dd)
+          description: Current decision date (to) (yyyy-MM-dd)
           schema:
             type: string
         - name: id
@@ -139,12 +139,12 @@ paths:
             type: string
         - name: ursprBeslutsdatum_from
           in: query
-          description: TBD Original decision date (from) (yyyy-MM-dd)
+          description: Original decision date (from) (yyyy-MM-dd)
           schema:
             type: string
         - name: ursprBeslutsdatum_tom
           in: query
-          description: TBD Original decision date (to) (yyyy-MM-dd)
+          description: Original decision date (to) (yyyy-MM-dd)
           schema:
             type: string
       responses:
@@ -179,7 +179,7 @@ paths:
             type: string
         - name: beslutsmyndighet
           in: query
-          description: TBD Decision authority (see /omrade/beslutsmyndigheter)
+          description: Authority (see /omrade/beslutsmyndigheter)
           schema:
             type: string
         - name: status
@@ -199,17 +199,17 @@ paths:
             type: string
         - name: forstagangsbeslut
           in: query
-          description: TBD Filter only first decision
+          description: First time decision
           schema:
             type: boolean
         - name: gallandedatum_from
           in: query
-          description: TBD Date of current decision (from) (yyyy-MM-dd)
+          description: Current decision date (from) (yyyy-MM-dd)
           schema:
             type: string
         - name: gallandedatum_tom
           in: query
-          description: TBD Date of current decision (to) (yyyy-MM-dd)
+          description: Current decision date (to) (yyyy-MM-dd)
           schema:
             type: string
         - name: id
@@ -283,12 +283,12 @@ paths:
             type: string
         - name: ursprBeslutsdatum_from
           in: query
-          description: TBD Original decision date (from) (yyyy-MM-dd)
+          description: Original decision date (from) (yyyy-MM-dd)
           schema:
             type: string
         - name: ursprBeslutsdatum_tom
           in: query
-          description: TBD Original decision date (to) (yyyy-MM-dd)
+          description: Original decision date (to) (yyyy-MM-dd)
           schema:
             type: string
       responses:
@@ -583,9 +583,9 @@ paths:
       description: >
         To be used in path parameter *{status}* and query parameter *beslutsstatus*
 
-         * `Gällande` = Current TBD
-         * `Beslutad` = Decided TBD
-         * `Överklagad` = Appealed
+         * `Gällande` = Current - the site has gained legal force
+         * `Beslutad` = Decided - the site has been decided but not yet gained legal force
+         * `Överklagad` = Appealed - the decision for the site has been appealed
       operationId: omrade_beslutsstatusar
       responses:
         "200":
@@ -603,7 +603,16 @@ paths:
       tags:
         - Sites
       summary: A list of all types of authorites
-      description: To be used in query parameter *beslutsmyndighet*
+      description: >
+        To be used in query parameter *beslutsmyndighet*.
+        
+          * `Domstol` = Court
+          * `Kommun` = Municipality
+          * `Länsstyrelse` = County
+          * `Naturvårdsverket` = Swedish EPA
+          * `Riksdag`/regering = Parliament/Government
+          * `Skogsstyrelsen` = Swedish Forest Agency
+          * `Vattendomstol` = Water court
       operationId: omrade_beslutsmyndigheter
       responses:
         "200":
@@ -698,7 +707,6 @@ paths:
             type: integer
             format: int64
           required: true
-          example: 2496389
       responses:
         "200":
           description: Successful operation
@@ -981,17 +989,17 @@ components:
           description: Decision type
           type: string
         beslutsmyndighet:
-          description: TBD Decision authority
+          description: Authority
           type: string
         diarienummer:
-          description: TBD Reference number
+          description: Registration number
           type: string
         beslutsdatum:
           description: Decision date
           type: integer
           format: int32
         gallandedatum:
-          description: TBD Date of current decision
+          description: Current decision date
           type: integer
           format: int32
         id:
@@ -1189,18 +1197,18 @@ components:
           type: integer
           format: int32
         ursprBeslutsdatum:
-          description: TBD Original decision date
+          description: Original decision date
           type: integer
           format: int32
         gallandedatum:
-          description: TBD Current decision date
+          description: Current decision date
           type: integer
           format: int32
         iucnKategori:
           description: IUCN category
           type: string
         forvaltare:
-          description: TBD Manager
+          description: Public administration
           type: string
         areaHa:
           description: Area in hecatres
@@ -1215,7 +1223,7 @@ components:
           description: Forest area in hectares
           type: number
         beslutsmyndighet:
-          description: TBD Decision authority
+          description: Authority
           type: string
         atomLink:
           description: ""
@@ -1272,18 +1280,18 @@ components:
           type: integer
           format: int32
         ursprBeslutsdatum:
-          description: TBD Original decision date
+          description: Original decision date
           type: integer
           format: int32
         gallandedatum:
-          description: TBD Current decision date
+          description: Current decision date
           type: integer
           format: int32
         iucnKategori:
           description: IUCN category
           type: string
         forvaltare:
-          description: TBD Manager
+          description: Public administration
           type: string
         areaHa:
           description: Area in hecatres
@@ -1298,7 +1306,7 @@ components:
           description: Forest area in hectares
           type: number
         beslutsmyndighet:
-          description: TBD Decision authority
+          description: Authority
           type: string
         atomLink:
           description: ""

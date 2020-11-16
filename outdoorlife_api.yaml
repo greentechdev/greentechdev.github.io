@@ -194,7 +194,7 @@ components:
           description: Name of protected site(s) that the trail passes through
         STATLIGLED:
           type: string
-          description: TBD Name of state owned trail that this trail belongs to
+          description: Name of national trail that this trail belongs to
         BESKRIVNING:
           type: string
           description: Description of trail
@@ -226,7 +226,7 @@ components:
           description: Name of protected site(s) that the devices belongs to
         STATLIGLED:
           type: string
-          description: TBD Name of state owned trail that this device belong to
+          description: Name of national trail that this device belong to
         BESKRIVNING:
           type: string
           description: Description of device
