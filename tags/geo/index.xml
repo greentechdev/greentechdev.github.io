@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GEO on Greentechdev</title>
+    <title>geo on Greentechdev</title>
     <link>/tags/geo/</link>
-    <description>Recent content in GEO on Greentechdev</description>
+    <description>Recent content in geo on Greentechdev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <lastBuildDate>Mon, 12 Oct 2020 00:00:00 +0000</lastBuildDate>
@@ -19,9 +19,8 @@
       <guid>/data/nvr/</guid>
       <description>Naturvårdsregistret (NVR) Data from the official list of protected nature areas (sites) in Sweden (Naturvårdsregistret, NVR) is exposed through a number of distribution channels.
 Read more about protected nature areas:
- http://www.swedishepa.se/Enjoying-nature/Protected-areas/ http://www.naturvardsverket.se/Var-natur/Skyddad-natur/ (Swedish) http://www.naturvardsverket.se/Sa-mar-miljon/Kartor/Kartverktyget-Skyddad-natur/ (Swedish)  TBD more text/links here
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar.</description>
+ http://www.swedishepa.se/Enjoying-nature/Protected-areas/ http://www.naturvardsverket.se/Var-natur/Skyddad-natur/ (Swedish) http://www.naturvardsverket.se/Sa-mar-miljon/Kartor/Kartverktyget-Skyddad-natur/ (Swedish)  Data quality See the Swedish EPA&amp;rsquo;s metadata catalogue for details: Öppna tjänster för data i naturvårdsregistret (Swedish).
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.  Our APIs and data are provided &#34;</description>
     </item>
     
     <item>
@@ -30,9 +29,9 @@ Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees co
       <pubDate>Tue, 06 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/data/trails-and-devices-in-outdoor-life/</guid>
-      <description>Trails and devices in outdoor life Trails and devices (e.g. toilets, parking lots) in national parks or other nature areas&amp;hellip; TBD
-License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.
-Our APIs and data are provided &amp;ldquo;as is&amp;rdquo; without guarantees concerning potential errors in the data, availability and performance of the API and similar. We reserve the right to block individual IP addresses or, alternatively, to completely shut down services in the event of obvious abuse.</description>
+      <description>Trails and devices in outdoor life Trails and devices (e.g. toilets, parking lots) in national parks or other nature areas.
+Data quality See the Swedish EPA&amp;rsquo;s metadata catalogue for details: Friluftsliv: Leder och anordningar i skyddade områden (Swedish).
+License &amp;amp; conditions The data is licensed under Creative Commons Zero, CC0.  Our APIs and data are provided &#34;as is&#34; without guarantees concerning potential errors in the data, availability and performance of the API and similar.</description>
     </item>
     
     <item>
