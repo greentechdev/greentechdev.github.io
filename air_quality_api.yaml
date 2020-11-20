@@ -10,7 +10,7 @@ info:
     name: Creative Commons Zero, CC0
     url: https://creativecommons.org/publicdomain/zero/1.0/
 servers:
-  - url: https://shair.smhi.se/52North/api/v1
+  - url: https://datavardluft.smhi.se/52North/api/v1
 paths:
   /stations:
     get:
