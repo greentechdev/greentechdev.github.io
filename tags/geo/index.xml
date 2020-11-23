@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>geo on Greentechdev</title>
+    <title>GEO on Greentechdev</title>
     <link>/tags/geo/</link>
-    <description>Recent content in geo on Greentechdev</description>
+    <description>Recent content in GEO on Greentechdev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <lastBuildDate>Mon, 12 Oct 2020 00:00:00 +0000</lastBuildDate>
@@ -40,7 +40,8 @@ License &amp;amp; conditions The data is licensed under Creative Commons Zero, C
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/data/air-quality-measurements/</guid>
-      <description>Air quality measurements Near real-time national air quality data from measuring stations - the air quality data provides information on the levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is made available via a HTTP/REST API with various usage examples. The data is provided in cooperation with SMHI.
+      <description>Air quality measurements Near real-time national air quality data from measuring stations - the air quality data provides information on the levels of various air pollutants, including particles, nitrogen dioxide and ground-level ozone, in Swedish cities and in rural areas. The data is made available via a HTTP/REST API with various usage examples.
+The data is provided in cooperation with SMHI.
 See Luftkvaliteten i realtid och preliminär statistik for more information (Swedish).</description>
     </item>
     
