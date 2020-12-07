@@ -814,7 +814,7 @@ paths:
     get:
       tags:
         - NMD classes
-      summary: A list of all NMD classes
+      summary: A list of all NMD classes. For details, see [data specifikation for NMD](http://www.swedishepa.se/upload/sa-mar-miljon/kartor/NMD-Produktbeskr-NMD2018Basskikt-v2-2.pdf).
       description: To be used in query parameter *nmdklass*
       operationId: nmdklass
       responses:
