@@ -323,7 +323,7 @@ paths:
             type: array
             items:
               type: string
-            example: [2001362, 2001362] 
+            example: [2001362, 2001363] 
       responses:
         "200":
           description: Successful operation
