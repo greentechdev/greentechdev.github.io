@@ -28,9 +28,9 @@
 "tags": ["API","GEO"]
 }
   , {
-"name": "Trails and devices in outdoor life",
+"name": "Trails and facilities in outdoor life",
 "updated": "2020-10-06",
-"description" : "Trails and devices (e.g. toilets, parking lots) in national parks or other nature areas",
-"permalink" : "/data/trails-and-devices-in-outdoor-life/",
+"description" : "Trails and facilities (e.g. toilets, parking lots) in national parks or other nature areas",
+"permalink" : "/data/trails-and-facilities-in-outdoor-life/",
 "tags": ["API","GEO"]
 }]

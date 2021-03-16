@@ -3,7 +3,7 @@ servers:
   - url: https://nvpub.vic-metria.nu/arcgis/rest/services 
 info:
   title: ArcGIS REST API for Outdoor Life
-  description: Subset of ArcGIS REST API for trails and devices for outdoor life in protected sites.
+  description: Subset of ArcGIS REST API for trails and facilities for outdoor life in protected sites.
   version: "1.0.0"
 paths:
   /Leder_friluftsliv_WFS/MapServer/0/query:
@@ -88,12 +88,12 @@ paths:
   /Anordningar_friluftsliv_WFS/MapServer/0/query:
     get:
       tags:
-        - Devices
-      summary: Searches devices in protected areas
-      operationId: searchDevices
+        - Facilities
+      summary: Searches facilities in protected areas
+      operationId: searchFacilities
       description: |
         By passing in the appropriate options, you can search for
-        available devices in the system
+        available facilities in the system
 
       parameters:
         - in: query
@@ -158,7 +158,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/DeviceFullSchema'
+                  $ref: '#/components/schemas/FacilityFullSchema'
         '400':
           description: Bad input parameter
         '500':
@@ -202,34 +202,34 @@ components:
           type: number
           description: "Length of trail (m)"
 
-    DeviceProperties:
+    FacilityProperties:
       type: object
-      description: The properties of the device features, assuming outfields=*
+      description: The properties of the facility features, assuming outfields=*
       properties:
         OBJECTID:
           type: integer
           description: ID of the object in the database
         ANORDNINGSNAMN:
           type: string
-          description: Name of the device
+          description: Name of the facility
         ANORDNING_ID:
           type: string
-          description: Internal ID of the device
+          description: Internal ID of the facility
         TYP:
           type: string
-          description: Type of device (see table 5 in data definition document)
+          description: Type of facility (see table 5 in data definition document)
         UNDERTYP:
           type: string
-          description: Subtype of device (see table 5 in data definition document)
+          description: Subtype of facility (see table 5 in data definition document)
         SKYDDATOMRADE:
           type: string
-          description: Name of protected site(s) that the devices belongs to
+          description: Name of protected site(s) that the facilities belongs to
         STATLIGLED:
           type: string
-          description: Name of national trail that this device belong to
+          description: Name of national trail that this facility belong to
         BESKRIVNING:
           type: string
-          description: Description of device
+          description: Description of facility
         NP:
           type: integer
           description: 1 if in National Park
@@ -292,8 +292,8 @@ components:
               properties:
                 $ref: '#/components/schemas/TrailProperties'
 
-    DeviceFullSchema:
-      description: Data model for devices service, assuming * in "out fields" param and geojson format
+    FacilityFullSchema:
+      description: Data model for facilities service, assuming * in "out fields" param and geojson format
       required:
       - type
       - features
@@ -335,7 +335,7 @@ components:
                     type: string
                     enum:
                     - MultiPoint
-                    description: the geometry type (always MultiPoint for devices)        
+                    description: the geometry type (always MultiPoint for facilities)        
                   coordinates:
                     type: array
                     items:
@@ -345,4 +345,4 @@ components:
                       items:
                         type: number
               properties:
-                $ref: '#/components/schemas/DeviceProperties'
+                $ref: '#/components/schemas/FacilityProperties'
