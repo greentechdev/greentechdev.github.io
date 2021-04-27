@@ -128,13 +128,13 @@ Our APIs and data are provided "as is" without guarantees concerning potential e
   <path d="M8 11.33a3.01 3.01 0 0 0 1.236-.83H9a1.99 1.99 0 0 1-1-.268 1.99 1.99 0 0 1-1 .268h-.236c.332.371.756.66 1.236.83z"/>
 </svg></a> </h2>
 <p>See the following example for an illustration of how to use the API and data. It&rsquo;s written in JavaScript, so it&rsquo;s easy to try without downloading or installing anything. Click the button <em>&ldquo;Try it!&quot;</em> below each block of code, or the link <em>&ldquo;Edit in JSFiddle&rdquo;</em> in the top right corner of the live example to edit, run and play with them further.</p>
-<h3 id="chart-last-24h-of-no2-at-hornsgatan">Chart last 24h of NO2 at Hornsgatan&nbsp;<a class="headline-anchor" href="#chart-last-24h-of-no2-at-hornsgatan"><svg class="bi bi-link" width="1em" height="1em" viewBox="0 0 16 16" fill="gray" xmlns="http://www.w3.org/2000/svg">
+<h3 id="chart-24h-of-no2-at-hornsgatan">Chart 24h of NO2 at Hornsgatan&nbsp;<a class="headline-anchor" href="#chart-24h-of-no2-at-hornsgatan"><svg class="bi bi-link" width="1em" height="1em" viewBox="0 0 16 16" fill="gray" xmlns="http://www.w3.org/2000/svg">
   <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
   <path d="M6.764 6.5H7c.364 0 .706.097 1 .268A1.99 1.99 0 0 1 9 6.5h.236A3.004 3.004 0 0 0 8 5.67a3 3 0 0 0-1.236.83z"/>
   <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
   <path d="M8 11.33a3.01 3.01 0 0 0 1.236-.83H9a1.99 1.99 0 0 1-1-.268 1.99 1.99 0 0 1-1 .268h-.236c.332.371.756.66 1.236.83z"/>
 </svg></a> </h3>
-<p>Say we&rsquo;re looking to chart the levels of NO2 (nitrogen dioxide) at Hornsgatan, Stockholm for the last 24 hours and compare it to the the threshold value from the <a href="https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Luft-och-klimat/Miljokvalitetsnormer-for-utomhusluft/Gransvarden-malvarden-utvarderingstrosklar/">environmental quality standards</a>. Something like</p>
+<p>Say we&rsquo;re looking to chart the levels of NO2 (nitrogen dioxide) at Hornsgatan, Stockholm how the were a year ago and compare it to the the threshold value from the <a href="https://www.naturvardsverket.se/Stod-i-miljoarbetet/Vagledningar/Luft-och-klimat/Miljokvalitetsnormer-for-utomhusluft/Gransvarden-malvarden-utvarderingstrosklar/">environmental quality standards</a>. Something like</p>
 <div class="shortcode shortcode--jsfiddle shortcode--code">
 	<iframe
 		height='380'	
@@ -304,7 +304,7 @@ Our APIs and data are provided "as is" without guarantees concerning potential e
 <span style="color:#000;font-weight:bold">...</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Now let&rsquo;s get the data for this timeseries (ID = 59) and plot it on a chart. We&rsquo;ll use the &ldquo;timespan&rdquo;-parameter to limit the results to a day back from now. This example uses the ChartJS-library.</p>
+</div><p>Now let&rsquo;s get the data for this timeseries (ID = 59) and plot it on a chart. We&rsquo;ll use the &ldquo;timespan&rdquo;-parameter to limit the results to a year back from now. This example uses the ChartJS-library.</p>
 <div class="highlight"><div style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -386,12 +386,14 @@ Our APIs and data are provided "as is" without guarantees concerning potential e
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#f8f8f8;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">//Create from and to-dates for the &#34;timespan&#34; API-parameter
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">toDate</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87">Date</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">fromDate</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87;font-weight:bold">new</span> <span style="color:#204a87">Date</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000">fromDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">setDate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">toDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getDate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">fromDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">setDate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">toDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getDate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">365</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000">toDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">setDate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">toDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">getDate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">364</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
 
 <span style="color:#8f5902;font-style:italic">//Create URL for our timeseries and with the create timespan dates
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">var</span> <span style="color:#000">url</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#4e9a06">&#34;https://datavardluft.smhi.se/52North/api/v1/timeseries/59/getData?timespan=&#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">fromDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">toISOString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#4e9a06">&#34;/&#34;</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">toDate</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">toISOString</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000;font-weight:bold">;</span>
@@ -500,7 +502,7 @@ Our APIs and data are provided "as is" without guarantees concerning potential e
         Website/docs provided as <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a><br />
         Code examples provided as <a href="https://github.com/greentechdev/docs/blob/master/LICENSE" target="_blank">MIT</a><br />
         Our <a href="/cookie-policy/">Cookie policy</a><br />
-        Last updated 2021-03-16
+        Last updated 2021-04-27
 
       </div>
       <div class="col-sm">
